@@ -2224,24 +2224,24 @@
         ]);
 
         // Plateformes
-        const codesData2 = await codesRes.json();
-        PLATFORMS = plats.map(p => ({
-          id: p.slug,
-          name: p.name,
-          emoji: p.emoji,
-          count: codesData2.items.filter(c => c.platform.slug === p.slug).length,
-        }));
-
-        // Catégories
+        const plats = await plRes.json();
         const cats = await catRes.json();
+        const codesData = await codesRes.json();
+
         CATEGORIES = cats.map(c => ({
           id: c.slug,
           label: c.name,
           emoji: c.emoji,
         }));
 
+        PLATFORMS = plats.map(p => ({
+          id: p.slug,
+          name: p.name,
+          emoji: p.emoji,
+          count: codesData.items.filter(c => c.platform.slug === p.slug).length,
+        }));
+
         // Codes
-        const codesData = await codesRes.json();
         CODES = codesData.items.map(c => {
           const expiry = c.expires_at ? new Date(c.expires_at) : null;
           const daysLeft = expiry ? (expiry - new Date()) / 86400000 : 999;
@@ -2306,7 +2306,7 @@
 
     // ── KEEP ALIVE — empêche Render de dormir ──
     function keepAlive() {
-      fetch(`${API}/stats`).catch(() => {});
+      fetch(`${API}/stats`).catch(() => { });
     }
     setInterval(keepAlive, 10 * 60 * 1000); // toutes les 10 minutes
     keepAlive();
