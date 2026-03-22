@@ -2219,17 +2219,17 @@
         const [plRes, catRes, codesRes, statsRes] = await Promise.all([
           fetch(`${API}/platforms/`),
           fetch(`${API}/categories/`),
-          fetch(`${API}/codes?per_page=50`),
+          fetch(`${API}/codes?per_page=200`),
           fetch(`${API}/stats`),
         ]);
 
         // Plateformes
-        const plats = await plRes.json();
+        const codesData2 = await codesRes.json();
         PLATFORMS = plats.map(p => ({
           id: p.slug,
           name: p.name,
           emoji: p.emoji,
-          count: p.codes_count || 0,
+          count: codesData2.items.filter(c => c.platform.slug === p.slug).length,
         }));
 
         // Catégories
