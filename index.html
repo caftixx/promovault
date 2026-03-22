@@ -2304,6 +2304,13 @@
 
     init();
 
+    // ── KEEP ALIVE — empêche Render de dormir ──
+    function keepAlive() {
+      fetch(`${API}/stats`).catch(() => {});
+    }
+    setInterval(keepAlive, 10 * 60 * 1000); // toutes les 10 minutes
+    keepAlive();
+
   </script>
 </body>
 
