@@ -710,6 +710,16 @@
       transform: translateY(-2px);
     }
 
+    .plat-pill.disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+    .plat-pill.disabled:hover {
+      transform: none;
+      border-color: var(--border);
+      background: var(--card);
+    }
+
     .pe {
       font-size: 1.5rem;
     }
@@ -1862,12 +1872,12 @@
 
     // ─── PLATEFORMES ─────────────────────────────────
     function renderPlatforms() {
-      const filtered = PLATFORMS.filter(p => p.count > 0);
-      document.getElementById('plat-grid').innerHTML = filtered.map(p =>
-        `<div class="plat-pill ${activePlatform === p.id ? 'active' : ''}" onclick="filterPlatform('${p.id}')">
+      document.getElementById('plat-grid').innerHTML = PLATFORMS.map(p =>
+        `<div class="plat-pill ${activePlatform === p.id ? 'active' : ''} ${p.count === 0 ? 'disabled' : ''}" 
+          onclick="${p.count > 0 ? `filterPlatform('${p.id}')` : ''}">
       <div class="pe">${p.emoji}</div>
       <div class="pn">${p.name}</div>
-      <div class="pc">${p.count} codes</div>
+      <div class="pc">${p.count > 0 ? p.count + ' codes' : 'Bientôt disponible'}</div>
     </div>`
       ).join('');
     }
