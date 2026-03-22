@@ -2219,7 +2219,7 @@
         const [plRes, catRes, codesRes, statsRes] = await Promise.all([
           fetch(`${API}/platforms/`),
           fetch(`${API}/categories/`),
-          fetch(`${API}/codes?per_page=200`),
+          fetch(`${API}/codes?per_page=100`),
           fetch(`${API}/stats`),
         ]);
 
