@@ -714,6 +714,7 @@
       opacity: 0.4;
       cursor: not-allowed;
     }
+
     .plat-pill.disabled:hover {
       transform: none;
       border-color: var(--border);
@@ -1877,7 +1878,7 @@
           onclick="${p.count > 0 ? `filterPlatform('${p.id}')` : ''}">
       <div class="pe">${p.emoji}</div>
       <div class="pn">${p.name}</div>
-      <div class="pc">${p.count > 0 ? p.count + ' codes' : 'Bientôt disponible'}</div>
+      <div class="pc">${p.count} code${p.count > 1 ? 's' : ''}</div>
     </div>`
       ).join('');
     }
