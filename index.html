@@ -1862,8 +1862,9 @@
 
     // ─── PLATEFORMES ─────────────────────────────────
     function renderPlatforms() {
-      document.getElementById('plat-grid').innerHTML = PLATFORMS.map(p => `
-    <div class="plat-pill ${activePlatform === p.id ? 'active' : ''}" onclick="filterPlatform('${p.id}')">
+      const filtered = PLATFORMS.filter(p => p.count > 0);
+      document.getElementById('plat-grid').innerHTML = filtered.map(p =>
+        `<div class="plat-pill ${activePlatform === p.id ? 'active' : ''}" onclick="filterPlatform('${p.id}')">
       <div class="pe">${p.emoji}</div>
       <div class="pn">${p.name}</div>
       <div class="pc">${p.count} codes</div>
