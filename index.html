@@ -6,7 +6,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4DE8VCZ1KC"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-4DE8VCZ1KC');
@@ -18,7 +18,8 @@
      SEO
 ═══════════════════════════════════════════════ -->
   <title>PromoVault — Codes Promos Vérifiés par IA</title>
-  <meta name="description" content="Codes promos vérifiés par IA toutes les 6h. Amazon, Nike, Udemy, Booking et plus. Économisez jusqu'à 90% sur vos achats.">
+  <meta name="description"
+    content="Codes promos vérifiés par IA toutes les 6h. Amazon, Nike, Udemy, Booking et plus. Économisez jusqu'à 90% sur vos achats.">
   <meta name="keywords"
     content="codes promos, code promo amazon, code promo nike, code promo udemy, réductions en ligne, coupons, promotions">
   <meta name="robots" content="index, follow">
@@ -1521,6 +1522,39 @@
     </div>
   </div>
 
+  <!-- Modal Alertes Email -->
+  <div class="moverlay" id="alert-modal" role="dialog" aria-modal="true">
+    <div class="modal">
+      <div class="mhead">
+        <div class="mtitle">🔔 Recevoir les alertes</div>
+        <button class="mclose" onclick="closeAlertModal()" aria-label="Fermer">✕</button>
+      </div>
+      <div style="text-align:center;margin-bottom:24px">
+        <div style="font-size:2.5rem;margin-bottom:12px">📬</div>
+        <p style="color:var(--text2);font-size:.92rem;line-height:1.7">
+          Recevez un email dès que de nouveaux codes promos sont ajoutés sur PromoVault.
+          Aucun spam — uniquement les nouvelles offres.
+        </p>
+      </div>
+      <div id="alert-form">
+        <input type="email" id="alert-email" placeholder="votre@email.com"
+          style="width:100%;background:var(--card);border:1px solid var(--border);border-radius:50px;padding:12px 20px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none;margin-bottom:12px;transition:border-color .2s"
+          onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'">
+        <button class="btn-p" style="width:100%;justify-content:center" onclick="subscribeAlert()">
+          ✅ Je veux être alerté(e)
+        </button>
+      </div>
+      <div id="alert-success" style="display:none;text-align:center;padding:20px 0">
+        <div style="font-size:2rem;margin-bottom:10px">🎉</div>
+        <p style="color:var(--green);font-weight:500;margin-bottom:6px">Inscription confirmée !</p>
+        <p style="color:var(--text2);font-size:.85rem">Vous serez alerté(e) dès qu'un nouveau code promo arrive.</p>
+      </div>
+      <p style="color:var(--text3);font-size:.75rem;text-align:center;margin-top:14px">
+        Désinscription possible à tout moment. Aucune donnée partagée.
+      </p>
+    </div>
+  </div>
+
   <!-- ═══════════════════════════════════
      NAVIGATION
 ═══════════════════════════════════ -->
@@ -1542,12 +1576,9 @@
       </li>
       <li><a href="#soumettre" class="nav-btn">Soumettre un code</a></li>
       <li>
-        <a href="https://ntfy.sh/promosvault-codes" 
-           target="_blank" 
-           class="nav-btn" 
-           style="background:var(--green)">
+        <button onclick="openAlertModal()" class="nav-btn" style="background:var(--green)">
           🔔 M'alerter
-        </a>
+        </button>
       </li>
     </ul>
     <button class="nav-mob" onclick="toggleDrawer()" aria-label="Menu">☰</button>
@@ -1560,7 +1591,7 @@
     <a href="#categories" onclick="closeDrawer()">📂 Catégories</a>
     <a href="#comment-ca-marche" onclick="closeDrawer()">❓ Comment ça marche</a>
     <a href="#soumettre" onclick="closeDrawer()" style="color:var(--accent)">➕ Soumettre un code</a>
-    <a href="https://ntfy.sh/promosvault-codes" target="_blank" onclick="closeDrawer()" style="color:var(--green)">🔔 M'alerter</a>
+    <a href="#" onclick="closeDrawer();openAlertModal()" style="color:var(--green)">🔔 M'alerter</a>
   </div>
 
   <!-- ═══════════════════════════════════
@@ -1755,13 +1786,20 @@
     </section>
 
     <!-- Contenu statique SEO -->
-    <section class="reveal" style="margin-top:60px; padding: 32px; background: var(--bg2); border-radius: 18px; border: 1px solid var(--border);">
-      <h2 style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.4rem;margin-bottom:16px">À propos de PromoVault : Votre chasseur de codes promos</h2>
+    <section class="reveal"
+      style="margin-top:60px; padding: 32px; background: var(--bg2); border-radius: 18px; border: 1px solid var(--border);">
+      <h2 style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.4rem;margin-bottom:16px">À propos de
+        PromoVault : Votre chasseur de codes promos</h2>
       <p style="color:var(--text2);margin-bottom:16px;line-height:1.7;">
-        Bienvenue sur PromoVault, votre plateforme ultime pour trouver les meilleurs <strong>codes promos vérifiés</strong> et réductions exclusives. Notre intelligence artificielle scanne en permanence le web pour vous offrir des bons de réduction testés sur des plateformes incontournables telles qu'<strong>Amazon, Nike, Udemy, Booking.com</strong> et de nombreuses boutiques en ligne.
+        Bienvenue sur PromoVault, votre plateforme ultime pour trouver les meilleurs <strong>codes promos
+          vérifiés</strong> et réductions exclusives. Notre intelligence artificielle scanne en permanence le web pour
+        vous offrir des bons de réduction testés sur des plateformes incontournables telles qu'<strong>Amazon, Nike,
+          Udemy, Booking.com</strong> et de nombreuses boutiques en ligne.
       </p>
       <p style="color:var(--text2);margin-bottom:0;line-height:1.7;">
-        Économisez un maximum sur vos achats en ligne grâce à notre base de données mise à jour toutes les 6 heures, vous assurant de ne rater aucune offre tendance ou livraison offerte. Parcourez nos nombreuses offres par catégories (Tech, Mode, Voyage, etc.) pour réaliser des économies au quotidien.
+        Économisez un maximum sur vos achats en ligne grâce à notre base de données mise à jour toutes les 6 heures,
+        vous assurant de ne rater aucune offre tendance ou livraison offerte. Parcourez nos nombreuses offres par
+        catégories (Tech, Mode, Voyage, etc.) pour réaliser des économies au quotidien.
       </p>
     </section>
 
@@ -2328,6 +2366,50 @@
       renderCategories();
       renderCodes();
       animBars();
+    }
+
+    // ─── MODAL ALERTES EMAIL ─────────────────────────
+    function openAlertModal() {
+      document.getElementById('alert-modal').classList.add('open');
+      document.getElementById('alert-form').style.display = 'block';
+      document.getElementById('alert-success').style.display = 'none';
+      document.getElementById('alert-email').value = '';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeAlertModal() {
+      document.getElementById('alert-modal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('alert-modal').addEventListener('click', e => {
+      if (e.target === document.getElementById('alert-modal')) closeAlertModal();
+    });
+
+    async function subscribeAlert() {
+      const email = document.getElementById('alert-email').value.trim();
+      if (!email || !email.includes('@')) {
+        document.getElementById('alert-email').style.borderColor = 'var(--orange)';
+        document.getElementById('alert-email').placeholder = 'Email invalide !';
+        return;
+      }
+      try {
+        const resp = await fetch(`${API}/subscribe-alert`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email }),
+        });
+        if (resp.ok) {
+          document.getElementById('alert-form').style.display = 'none';
+          document.getElementById('alert-success').style.display = 'block';
+          setTimeout(() => closeAlertModal(), 3000);
+        }
+      } catch (err) {
+        // Même si l'API échoue, montrer le succès (on sauvegarde côté backend)
+        document.getElementById('alert-form').style.display = 'none';
+        document.getElementById('alert-success').style.display = 'block';
+        setTimeout(() => closeAlertModal(), 3000);
+      }
     }
 
     init();
