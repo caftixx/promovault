@@ -1540,7 +1540,6 @@
           IA active
         </div>
       </li>
-      <li><button id="notif-btn" class="nav-btn" onclick="requestNotificationPermission()" style="background:var(--accent2);border:none;cursor:pointer">🔔 Notifications</button></li>
       <li><a href="#soumettre" class="nav-btn">Soumettre un code</a></li>
     </ul>
     <button class="nav-mob" onclick="toggleDrawer()" aria-label="Menu">☰</button>
@@ -1552,7 +1551,6 @@
     <a href="#platforms" onclick="closeDrawer()">🛒 Plateformes</a>
     <a href="#categories" onclick="closeDrawer()">📂 Catégories</a>
     <a href="#comment-ca-marche" onclick="closeDrawer()">❓ Comment ça marche</a>
-    <a href="#" id="notif-btn-mob" onclick="requestNotificationPermission(); closeDrawer()" style="color:var(--accent2)">🔔 Activer les notifications</a>
     <a href="#soumettre" onclick="closeDrawer()" style="color:var(--accent)">➕ Soumettre un code</a>
   </div>
 
@@ -1857,8 +1855,6 @@
     let CATEGORIES = [];
     let CODES = [];
     let TICKER = [];
-    let knownCodeIds = new Set();
-    let notificationsEnabled = false;
 
     let activeFilter = 'all';
     let activePlatform = null;
@@ -2266,7 +2262,6 @@
 
         // Codes
         CODES = codesData.items.map(c => {
-          knownCodeIds.add(c.id);
           const expiry = c.expires_at ? new Date(c.expires_at) : null;
           const daysLeft = expiry ? (expiry - new Date()) / 86400000 : 999;
           return {
@@ -2334,68 +2329,6 @@
     }
     setInterval(keepAlive, 10 * 60 * 1000); // toutes les 10 minutes
     keepAlive();
-
-    // ── NOTIFICATIONS AUTOMATIQUES ──
-    function updateNotifButtons() {
-      const btn = document.getElementById('notif-btn');
-      const btnMob = document.getElementById('notif-btn-mob');
-      if (Notification && Notification.permission === 'granted') {
-        if(btn) btn.textContent = '🔔 Notifications activées';
-        if(btnMob) btnMob.textContent = '🔔 Notifications activées';
-        notificationsEnabled = true;
-      }
-    }
-
-    function requestNotificationPermission() {
-      if (!('Notification' in window)) {
-        alert('Ce navigateur ne supporte pas les notifications.');
-        return;
-      }
-      Notification.requestPermission().then(permission => {
-        if (permission === 'granted') {
-          updateNotifButtons();
-          new Notification('Notifications activées !', {
-            body: 'Vous recevrez une alerte dès qu\\'un nouveau code promo est ajouté.'
-          });
-        }
-      });
-    }
-
-    async function checkForNewCodes() {
-      if (!('Notification' in window) || Notification.permission !== 'granted') return;
-      try {
-        const res = await fetch(`${API}/codes?per_page=20`);
-        const data = await res.json();
-        let newCodesFound = false;
-        
-        data.items.reverse().forEach(c => {
-           // Si un code n'est pas dans le set des connus
-          if (!knownCodeIds.has(c.id)) {
-            newCodesFound = true;
-            knownCodeIds.add(c.id);
-            // Notification visuelle
-            new Notification(`Nouveau code ${c.platform.name} !`, {
-              body: (c.discount_label ? c.discount_label + ' - ' : '') + (c.description || 'Profitez-en vite !')
-            });
-          }
-        });
-        
-        if (newCodesFound) {
-          // Recharge en arrière-plan et met à jour l'UI discrètement
-          loadFromAPI().then(() => {
-            renderCodes();
-            renderTicker();
-          });
-        }
-      } catch (e) {
-        console.warn('Erreur check codes:', e);
-      }
-    }
-
-    // Vérifie toutes les 60 secondes si on a la permission
-    setInterval(checkForNewCodes, 60000);
-    // Maj boutons init
-    updateNotifButtons();
 
   </script>
 </body>
