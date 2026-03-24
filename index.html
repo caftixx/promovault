@@ -112,18 +112,20 @@
         </p>
       </div>
       <div id="alert-form">
-        <input type="email" id="alert-email" placeholder="votre@email.com"
-          data-i18n-placeholder="alert.placeholder"
+        <input type="email" id="alert-email" placeholder="votre@email.com" data-i18n-placeholder="alert.placeholder"
           style="width:100%;background:var(--card);border:1px solid var(--border);border-radius:50px;padding:12px 20px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none;margin-bottom:12px;transition:border-color .2s"
           onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'">
-        <button class="btn-p" style="width:100%;justify-content:center" onclick="subscribeAlert()" data-i18n="alert.btn">
+        <button class="btn-p" style="width:100%;justify-content:center" onclick="subscribeAlert()"
+          data-i18n="alert.btn">
           ✅ Je veux être alerté(e)
         </button>
       </div>
       <div id="alert-success" style="display:none;text-align:center;padding:20px 0">
         <div style="font-size:2rem;margin-bottom:10px">🎉</div>
-        <p style="color:var(--green);font-weight:500;margin-bottom:6px" data-i18n="alert.success_title">Inscription confirmée !</p>
-        <p style="color:var(--text2);font-size:.85rem" data-i18n="alert.success_sub">Vous serez alerté(e) dès qu'un nouveau code promo arrive.</p>
+        <p style="color:var(--green);font-weight:500;margin-bottom:6px" data-i18n="alert.success_title">Inscription
+          confirmée !</p>
+        <p style="color:var(--text2);font-size:.85rem" data-i18n="alert.success_sub">Vous serez alerté(e) dès qu'un
+          nouveau code promo arrive.</p>
       </div>
       <p style="color:var(--text3);font-size:.75rem;text-align:center;margin-top:14px" data-i18n="alert.unsub">
         Désinscription possible à tout moment. Aucune donnée partagée.
@@ -157,11 +159,14 @@
         </button>
       </li>
       <li>
-        <button onclick="toggleLang()" id="lang-btn" class="nav-btn" style="background:var(--bg2);border:1px solid var(--border);color:var(--text);font-size:.82rem;padding:7px 13px">🇬🇧 EN</button>
+        <button onclick="toggleLang()" id="lang-btn" class="nav-btn"
+          style="background:var(--bg2);border:1px solid var(--border);color:var(--text);font-size:.82rem;padding:7px 13px">🇬🇧
+          EN</button>
       </li>
     </ul>
     <button class="nav-mob" onclick="toggleDrawer()" aria-label="Menu">☰</button>
-    <button onclick="openAlertModal()" class="nav-btn nav-alert-mob" style="background:var(--green);display:none;font-size:.78rem;padding:7px 14px">🔔</button>
+    <button onclick="openAlertModal()" class="nav-btn nav-alert-mob"
+      style="background:var(--green);display:none;font-size:.78rem;padding:7px 14px">🔔</button>
   </nav>
 
   <!-- Menu mobile -->
@@ -170,16 +175,20 @@
     <a href="#platforms" onclick="closeDrawer()" data-i18n="drawer.platforms">🛒 Plateformes</a>
     <a href="#categories" onclick="closeDrawer()" data-i18n="drawer.categories">📂 Catégories</a>
     <a href="#comment-ca-marche" onclick="closeDrawer()" data-i18n="drawer.how">❓ Comment ça marche</a>
-    <a href="#soumettre" onclick="closeDrawer()" style="color:var(--accent)" data-i18n="drawer.submit">➕ Soumettre un code</a>
-    <a href="#" onclick="closeDrawer();openAlertModal()" style="color:var(--green)" data-i18n="drawer.alert">🔔 M'alerter</a>
-    <a href="#" onclick="closeDrawer();toggleLang()" id="drawer-lang-btn" style="color:var(--text2)">🇬🇧 Switch to English</a>
+    <a href="#soumettre" onclick="closeDrawer()" style="color:var(--accent)" data-i18n="drawer.submit">➕ Soumettre un
+      code</a>
+    <a href="#" onclick="closeDrawer();openAlertModal()" style="color:var(--green)" data-i18n="drawer.alert">🔔
+      M'alerter</a>
+    <a href="#" onclick="closeDrawer();toggleLang()" id="drawer-lang-btn" style="color:var(--text2)">🇬🇧 Switch to
+      English</a>
   </div>
 
   <!-- ═══════════════════════════════════
      HERO
 ═══════════════════════════════════ -->
   <section class="hero">
-    <h1><span data-i18n="hero.h1a">Les meilleurs codes promos,</span><br><span class="grad" data-i18n="hero.h1b">vérifiés toutes les 6h</span></h1>
+    <h1><span data-i18n="hero.h1a">Les meilleurs codes promos,</span><br><span class="grad"
+        data-i18n="hero.h1b">vérifiés toutes les 6h</span></h1>
     <p class="hero-sub" data-i18n="hero.sub">
       PromoVault scrute automatiquement des centaines de plateformes mondiales
       pour vous trouver les meilleures réductions du moment. Fini les codes expirés.
@@ -354,10 +363,12 @@
     <section id="soumettre" class="reveal" style="margin-top:60px">
       <div
         style="background:linear-gradient(135deg,rgba(108,92,231,.1),rgba(253,121,168,.06));border:1px solid rgba(108,92,231,.2);border-radius:18px;padding:40px;text-align:center">
-        <h2 style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.6rem;margin-bottom:12px" data-i18n="submit.title">
+        <h2 style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.6rem;margin-bottom:12px"
+          data-i18n="submit.title">
           Vous avez un code promo ?
         </h2>
-        <p style="color:var(--text2);margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto" data-i18n="submit.desc">
+        <p style="color:var(--text2);margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto"
+          data-i18n="submit.desc">
           Partagez-le avec la communauté. Notre agent IA le vérifiera et le publiera
           automatiquement s'il est valide.
         </p>
@@ -368,7 +379,8 @@
     <!-- Contenu statique SEO -->
     <section class="reveal"
       style="margin-top:60px; padding: 32px; background: var(--bg2); border-radius: 18px; border: 1px solid var(--border);">
-      <h2 style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.4rem;margin-bottom:16px" data-i18n="about.title">À propos de
+      <h2 style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.4rem;margin-bottom:16px"
+        data-i18n="about.title">À propos de
         PromoVault : Votre chasseur de codes promos</h2>
       <p style="color:var(--text2);margin-bottom:16px;line-height:1.7;" data-i18n-html="about.p1">
         Bienvenue sur PromoVault, votre plateforme ultime pour trouver les meilleurs <strong>codes promos
@@ -421,8 +433,10 @@
           <ul>
             <li><a href="#codes" onclick="filterCategory('mode')" data-i18n="footer.cat.mode">Mode & Beauté</a></li>
             <li><a href="#codes" onclick="filterCategory('tech')" data-i18n="footer.cat.tech">Tech & High-Tech</a></li>
-            <li><a href="#codes" onclick="filterCategory('formations')" data-i18n="footer.cat.formations">Formations en ligne</a></li>
-            <li><a href="#codes" onclick="filterCategory('voyage')" data-i18n="footer.cat.voyage">Voyage & Hôtels</a></li>
+            <li><a href="#codes" onclick="filterCategory('formations')" data-i18n="footer.cat.formations">Formations en
+                ligne</a></li>
+            <li><a href="#codes" onclick="filterCategory('voyage')" data-i18n="footer.cat.voyage">Voyage & Hôtels</a>
+            </li>
             <li><a href="#codes" onclick="filterCategory('food')" data-i18n="footer.cat.food">Food & Livraison</a></li>
             <li><a href="#codes" onclick="filterCategory('gaming')" data-i18n="footer.cat.gaming">Gaming</a></li>
           </ul>
@@ -434,15 +448,18 @@
             <li><a href="#comment-ca-marche" data-i18n="footer.how">Comment ça marche</a></li>
             <li><a href="#soumettre" data-i18n="footer.submit">Soumettre un code</a></li>
             <li><a href="#" onclick="showPage('cgv');return false" data-i18n="footer.cgv">CGV</a></li>
-            <li><a href="#" onclick="showPage('confidentialite');return false" data-i18n="footer.privacy">Confidentialité</a></li>
-            <li><a href="#" onclick="showPage('mentions');return false" data-i18n="footer.legal">Mentions légales</a></li>
+            <li><a href="#" onclick="showPage('confidentialite');return false"
+                data-i18n="footer.privacy">Confidentialité</a></li>
+            <li><a href="#" onclick="showPage('mentions');return false" data-i18n="footer.legal">Mentions légales</a>
+            </li>
           </ul>
         </div>
 
       </div>
 
       <div class="fbot">
-        <div data-i18n="footer.copyright">© 2025 PromoVault — Tous droits réservés. Codes promos vérifiés automatiquement par IA.</div>
+        <div data-i18n="footer.copyright">© 2025 PromoVault — Tous droits réservés. Codes promos vérifiés
+          automatiquement par IA.</div>
         <div class="fbot-r">
           <span style="display:flex;align-items:center;gap:6px">
             <div class="dot"></div>
@@ -458,7 +475,7 @@
   <!-- ═══════════════════════════════════
      JAVASCRIPT
 ═══════════════════════════════════ -->
-  <script src="app.js"></script>
+  <script type="module" src="app.js"></script>
 </body>
 
 </html>
