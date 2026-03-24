@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" id="html-root">
 
 <head>
   <!-- Google tag (gtag.js) -->
@@ -91,7 +91,7 @@
         <div class="ccode" id="modal-code"></div>
       </div>
       <div class="mdetails" id="modal-details"></div>
-      <button class="btn-p" style="width:100%;justify-content:center" onclick="copyFromModal()">
+      <button class="btn-p" style="width:100%;justify-content:center" onclick="copyFromModal()" data-i18n="modal.copy">
         📋 Copier & aller sur le site
       </button>
     </div>
@@ -101,30 +101,31 @@
   <div class="moverlay" id="alert-modal" role="dialog" aria-modal="true">
     <div class="modal">
       <div class="mhead">
-        <div class="mtitle">🔔 Recevoir les alertes</div>
+        <div class="mtitle" data-i18n="alert.title">🔔 Recevoir les alertes</div>
         <button class="mclose" onclick="closeAlertModal()" aria-label="Fermer">✕</button>
       </div>
       <div style="text-align:center;margin-bottom:24px">
         <div style="font-size:2.5rem;margin-bottom:12px">📬</div>
-        <p style="color:var(--text2);font-size:.92rem;line-height:1.7">
+        <p style="color:var(--text2);font-size:.92rem;line-height:1.7" data-i18n="alert.desc">
           Recevez un email dès que de nouveaux codes promos sont ajoutés sur PromoVault.
           Aucun spam — uniquement les nouvelles offres.
         </p>
       </div>
       <div id="alert-form">
         <input type="email" id="alert-email" placeholder="votre@email.com"
+          data-i18n-placeholder="alert.placeholder"
           style="width:100%;background:var(--card);border:1px solid var(--border);border-radius:50px;padding:12px 20px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none;margin-bottom:12px;transition:border-color .2s"
           onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'">
-        <button class="btn-p" style="width:100%;justify-content:center" onclick="subscribeAlert()">
+        <button class="btn-p" style="width:100%;justify-content:center" onclick="subscribeAlert()" data-i18n="alert.btn">
           ✅ Je veux être alerté(e)
         </button>
       </div>
       <div id="alert-success" style="display:none;text-align:center;padding:20px 0">
         <div style="font-size:2rem;margin-bottom:10px">🎉</div>
-        <p style="color:var(--green);font-weight:500;margin-bottom:6px">Inscription confirmée !</p>
-        <p style="color:var(--text2);font-size:.85rem">Vous serez alerté(e) dès qu'un nouveau code promo arrive.</p>
+        <p style="color:var(--green);font-weight:500;margin-bottom:6px" data-i18n="alert.success_title">Inscription confirmée !</p>
+        <p style="color:var(--text2);font-size:.85rem" data-i18n="alert.success_sub">Vous serez alerté(e) dès qu'un nouveau code promo arrive.</p>
       </div>
-      <p style="color:var(--text3);font-size:.75rem;text-align:center;margin-top:14px">
+      <p style="color:var(--text3);font-size:.75rem;text-align:center;margin-top:14px" data-i18n="alert.unsub">
         Désinscription possible à tout moment. Aucune donnée partagée.
       </p>
     </div>
@@ -139,21 +140,24 @@
       <div class="logo-text">Promo<em>Vault</em></div>
     </a>
     <ul class="nav-menu">
-      <li><a href="#codes">Codes promos</a></li>
-      <li><a href="#platforms">Plateformes</a></li>
-      <li><a href="#categories">Catégories</a></li>
-      <li><a href="#comment-ca-marche">Comment ça marche</a></li>
+      <li><a href="#codes" data-i18n="nav.codes">Codes promos</a></li>
+      <li><a href="#platforms" data-i18n="nav.platforms">Plateformes</a></li>
+      <li><a href="#categories" data-i18n="nav.categories">Catégories</a></li>
+      <li><a href="#comment-ca-marche" data-i18n="nav.how">Comment ça marche</a></li>
       <li>
         <div class="nav-live">
           <div class="dot"></div>
-          IA active
+          <span data-i18n="nav.live">IA active</span>
         </div>
       </li>
-      <li><a href="#soumettre" class="nav-btn">Soumettre un code</a></li>
+      <li><a href="#soumettre" class="nav-btn" data-i18n="nav.submit">Soumettre un code</a></li>
       <li>
-        <button onclick="openAlertModal()" class="nav-btn" style="background:var(--green)">
+        <button onclick="openAlertModal()" class="nav-btn" style="background:var(--green)" data-i18n="nav.alert">
           🔔 M'alerter
         </button>
+      </li>
+      <li>
+        <button onclick="toggleLang()" id="lang-btn" class="nav-btn" style="background:var(--bg2);border:1px solid var(--border);color:var(--text);font-size:.82rem;padding:7px 13px">🇬🇧 EN</button>
       </li>
     </ul>
     <button class="nav-mob" onclick="toggleDrawer()" aria-label="Menu">☰</button>
@@ -162,46 +166,47 @@
 
   <!-- Menu mobile -->
   <div class="drawer" id="drawer">
-    <a href="#codes" onclick="closeDrawer()">🏷️ Codes promos</a>
-    <a href="#platforms" onclick="closeDrawer()">🛒 Plateformes</a>
-    <a href="#categories" onclick="closeDrawer()">📂 Catégories</a>
-    <a href="#comment-ca-marche" onclick="closeDrawer()">❓ Comment ça marche</a>
-    <a href="#soumettre" onclick="closeDrawer()" style="color:var(--accent)">➕ Soumettre un code</a>
-    <a href="#" onclick="closeDrawer();openAlertModal()" style="color:var(--green)">🔔 M'alerter</a>
+    <a href="#codes" onclick="closeDrawer()" data-i18n="drawer.codes">🏷️ Codes promos</a>
+    <a href="#platforms" onclick="closeDrawer()" data-i18n="drawer.platforms">🛒 Plateformes</a>
+    <a href="#categories" onclick="closeDrawer()" data-i18n="drawer.categories">📂 Catégories</a>
+    <a href="#comment-ca-marche" onclick="closeDrawer()" data-i18n="drawer.how">❓ Comment ça marche</a>
+    <a href="#soumettre" onclick="closeDrawer()" style="color:var(--accent)" data-i18n="drawer.submit">➕ Soumettre un code</a>
+    <a href="#" onclick="closeDrawer();openAlertModal()" style="color:var(--green)" data-i18n="drawer.alert">🔔 M'alerter</a>
+    <a href="#" onclick="closeDrawer();toggleLang()" id="drawer-lang-btn" style="color:var(--text2)">🇬🇧 Switch to English</a>
   </div>
 
   <!-- ═══════════════════════════════════
      HERO
 ═══════════════════════════════════ -->
   <section class="hero">
-    <h1>Les meilleurs codes promos,<br><span class="grad">vérifiés toutes les 6h</span></h1>
-    <p class="hero-sub">
+    <h1><span data-i18n="hero.h1a">Les meilleurs codes promos,</span><br><span class="grad" data-i18n="hero.h1b">vérifiés toutes les 6h</span></h1>
+    <p class="hero-sub" data-i18n="hero.sub">
       PromoVault scrute automatiquement des centaines de plateformes mondiales
       pour vous trouver les meilleures réductions du moment. Fini les codes expirés.
     </p>
     <div class="hero-btns">
-      <a href="#codes" class="btn-p">🎯 Voir les codes du jour</a>
-      <a href="#comment-ca-marche" class="btn-g">❓ Comment ça marche</a>
+      <a href="#codes" class="btn-p" data-i18n="hero.btn1">🎯 Voir les codes du jour</a>
+      <a href="#comment-ca-marche" class="btn-g" data-i18n="hero.btn2">❓ Comment ça marche</a>
     </div>
     <div class="stats-row">
       <div class="stat">
         <div class="stat-n" id="cnt-codes">0</div>
-        <div class="stat-l">Codes actifs</div>
+        <div class="stat-l" data-i18n="stat.codes">Codes actifs</div>
       </div>
       <div class="stat-sep"></div>
       <div class="stat">
         <div class="stat-n" id="cnt-brands">0</div>
-        <div class="stat-l">Plateformes</div>
+        <div class="stat-l" data-i18n="stat.platforms">Plateformes</div>
       </div>
       <div class="stat-sep"></div>
       <div class="stat">
         <div class="stat-n" id="cnt-rate">0%</div>
-        <div class="stat-l">Taux de validité</div>
+        <div class="stat-l" data-i18n="stat.rate">Taux de validité</div>
       </div>
       <div class="stat-sep"></div>
       <div class="stat">
         <div class="stat-n">6h</div>
-        <div class="stat-l">Cycle de mise à jour</div>
+        <div class="stat-l" data-i18n="stat.cycle">Cycle de mise à jour</div>
       </div>
     </div>
   </section>
@@ -211,7 +216,7 @@
 ═══════════════════════════════════ -->
   <div class="ad-banner">
     <div>
-      <span class="ad-lbl">Publicité</span>
+      <span class="ad-lbl" data-i18n="page.ad">Publicité</span>
       <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px;max-width:calc(100vw - 40px)"
         data-ad-client="ca-pub-8294263820749243" data-ad-slot="XXXXXXXXXX"></ins>
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
@@ -235,29 +240,29 @@
       <div class="ai-panel">
         <div class="ai-head">
           <div class="dot"></div>
-          <div class="ai-title">Statut en temps réel</div>
-          <div class="ai-time">Cycle automatique toutes les 6 heures</div>
+          <div class="ai-title" data-i18n="ai.title">Statut en temps réel</div>
+          <div class="ai-time" data-i18n="ai.cycle">Cycle automatique toutes les 6 heures</div>
         </div>
         <div class="ai-card">
-          <div class="ai-lbl">Codes actifs en base</div>
+          <div class="ai-lbl" data-i18n="ai.lbl1">Codes actifs en base</div>
           <div class="ai-val" id="ai-checked">—</div>
-          <div class="ai-sub">Mise à jour automatique</div>
+          <div class="ai-sub" data-i18n="ai.sub1">Mise à jour automatique</div>
           <div class="pbar">
             <div class="pfill" style="width:0" data-w="78%"></div>
           </div>
         </div>
         <div class="ai-card">
-          <div class="ai-lbl">Score de validité moyen</div>
+          <div class="ai-lbl" data-i18n="ai.lbl2">Score de validité moyen</div>
           <div class="ai-val" id="ai-score">—</div>
-          <div class="ai-sub">Codes publiés automatiquement</div>
+          <div class="ai-sub" data-i18n="ai.sub2">Codes publiés automatiquement</div>
           <div class="pbar">
             <div class="pfill" style="width:0" data-w="94%"></div>
           </div>
         </div>
         <div class="ai-card">
-          <div class="ai-lbl">Prochain cycle dans</div>
+          <div class="ai-lbl" data-i18n="ai.lbl3">Prochain cycle dans</div>
           <div class="ai-val" id="countdown">--:--:--</div>
-          <div class="ai-sub">GitHub Actions toutes les 6h</div>
+          <div class="ai-sub" data-i18n="ai.sub3">GitHub Actions toutes les 6h</div>
           <div class="pbar">
             <div class="pfill" style="width:0" data-w="60%"></div>
           </div>
@@ -268,15 +273,15 @@
     <!-- Plateformes -->
     <section id="platforms" class="reveal">
       <div class="sh">
-        <h2>Plateformes <em>populaires</em></h2>
-        <div class="sh-meta">Cliquez pour filtrer les codes</div>
+        <h2 data-i18n-html="platforms.title">Plateformes <em>populaires</em></h2>
+        <div class="sh-meta" data-i18n="platforms.meta">Cliquez pour filtrer les codes</div>
       </div>
       <div class="plat-grid" id="plat-grid"></div>
     </section>
 
     <!-- PUB rectangle entre sections (728x90) -->
     <div class="ad-rect reveal">
-      <span class="ad-lbl">Publicité</span>
+      <span class="ad-lbl" data-i18n="page.ad">Publicité</span>
       <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px;max-width:100%"
         data-ad-client="ca-pub-8294263820749243" data-ad-slot="XXXXXXXXXX"></ins>
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
@@ -285,7 +290,7 @@
     <!-- Catégories -->
     <section id="categories" class="reveal">
       <div class="sh">
-        <h2>Par <em>catégorie</em></h2>
+        <h2 data-i18n-html="cats.title">Par <em>catégorie</em></h2>
       </div>
       <div class="cats" id="cats-row"></div>
     </section>
@@ -294,12 +299,12 @@
     <div class="fbar reveal">
       <div class="fwrap">
         <input type="search" class="fsearch" id="search-input" placeholder="Rechercher un code, une marque..."
-          autocomplete="off">
+          data-i18n-placeholder="filter.search" autocomplete="off">
       </div>
-      <button class="fbtn active" data-filter="all">Tous</button>
-      <button class="fbtn" data-filter="hot">🔥 Tendances</button>
-      <button class="fbtn" data-filter="expiring">⏰ Expire bientôt</button>
-      <button class="fbtn" data-filter="free">🚚 Livraison offerte</button>
+      <button class="fbtn active" data-filter="all" data-i18n="filter.all">Tous</button>
+      <button class="fbtn" data-filter="hot" data-i18n="filter.hot">🔥 Tendances</button>
+      <button class="fbtn" data-filter="expiring" data-i18n="filter.expiring">⏰ Expire bientôt</button>
+      <button class="fbtn" data-filter="free" data-i18n="filter.free">🚚 Livraison offerte</button>
     </div>
 
     <!-- Codes + Sidebar -->
@@ -309,12 +314,12 @@
       <div>
         <section id="codes" class="reveal">
           <div class="sh">
-            <h2>Codes promos <em>du jour</em></h2>
+            <h2 data-i18n-html="codes.title">Codes promos <em>du jour</em></h2>
             <div class="sh-meta" id="codes-count">Chargement...</div>
           </div>
           <div class="cgrid" id="codes-grid"></div>
           <div style="text-align:center;margin-top:14px">
-            <button class="btn-g" id="load-more" onclick="loadMore()" style="display:none">
+            <button class="btn-g" id="load-more" onclick="loadMore()" style="display:none" data-i18n="codes.loadmore">
               Charger plus de codes ↓
             </button>
           </div>
@@ -326,7 +331,7 @@
         <!-- PUB sidebar haute (300x250) -->
         <div class="sbox">
           <div style="text-align:center">
-            <span class="ad-lbl" style="display:block;margin-bottom:8px">Publicité</span>
+            <span class="ad-lbl" style="display:block;margin-bottom:8px" data-i18n="page.ad">Publicité</span>
             <ins class="adsbygoogle" style="display:inline-block;width:280px;height:250px"
               data-ad-client="ca-pub-8294263820749243" data-ad-slot="XXXXXXXXXX"></ins>
             <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
@@ -335,7 +340,7 @@
         <!-- PUB sidebar basse (300x250) -->
         <div class="sbox">
           <div style="text-align:center">
-            <span class="ad-lbl" style="display:block;margin-bottom:8px">Publicité</span>
+            <span class="ad-lbl" style="display:block;margin-bottom:8px" data-i18n="page.ad">Publicité</span>
             <ins class="adsbygoogle" style="display:inline-block;width:280px;height:250px"
               data-ad-client="ca-pub-8294263820749243" data-ad-slot="XXXXXXXXXX"></ins>
             <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
@@ -349,29 +354,29 @@
     <section id="soumettre" class="reveal" style="margin-top:60px">
       <div
         style="background:linear-gradient(135deg,rgba(108,92,231,.1),rgba(253,121,168,.06));border:1px solid rgba(108,92,231,.2);border-radius:18px;padding:40px;text-align:center">
-        <h2 style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.6rem;margin-bottom:12px">
+        <h2 style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.6rem;margin-bottom:12px" data-i18n="submit.title">
           Vous avez un code promo ?
         </h2>
-        <p style="color:var(--text2);margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto">
+        <p style="color:var(--text2);margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto" data-i18n="submit.desc">
           Partagez-le avec la communauté. Notre agent IA le vérifiera et le publiera
           automatiquement s'il est valide.
         </p>
-        <button class="btn-p" onclick="openSubmitModal()">➕ Soumettre un code gratuit</button>
+        <button class="btn-p" onclick="openSubmitModal()" data-i18n="submit.btn">➕ Soumettre un code gratuit</button>
       </div>
     </section>
 
     <!-- Contenu statique SEO -->
     <section class="reveal"
       style="margin-top:60px; padding: 32px; background: var(--bg2); border-radius: 18px; border: 1px solid var(--border);">
-      <h2 style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.4rem;margin-bottom:16px">À propos de
+      <h2 style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.4rem;margin-bottom:16px" data-i18n="about.title">À propos de
         PromoVault : Votre chasseur de codes promos</h2>
-      <p style="color:var(--text2);margin-bottom:16px;line-height:1.7;">
+      <p style="color:var(--text2);margin-bottom:16px;line-height:1.7;" data-i18n-html="about.p1">
         Bienvenue sur PromoVault, votre plateforme ultime pour trouver les meilleurs <strong>codes promos
           vérifiés</strong> et réductions exclusives. Notre intelligence artificielle scanne en permanence le web pour
         vous offrir des bons de réduction testés sur des plateformes incontournables telles qu'<strong>Amazon, Nike,
           Udemy, Booking.com</strong> et de nombreuses boutiques en ligne.
       </p>
-      <p style="color:var(--text2);margin-bottom:0;line-height:1.7;">
+      <p style="color:var(--text2);margin-bottom:0;line-height:1.7;" data-i18n="about.p2">
         Économisez un maximum sur vos achats en ligne grâce à notre base de données mise à jour toutes les 6 heures,
         vous assurant de ne rater aucune offre tendance ou livraison offerte. Parcourez nos nombreuses offres par
         catégories (Tech, Mode, Voyage, etc.) pour réaliser des économies au quotidien.
@@ -392,7 +397,7 @@
             <div class="logo-icon" style="width:30px;height:30px;font-size:.85rem">🏷️</div>
             <div class="logo-text">Promo<em>Vault</em></div>
           </a>
-          <p>
+          <p data-i18n="footer.desc">
             Le premier agrégateur de codes promos vérifiés par intelligence artificielle.
             Mise à jour automatique toutes les 6h sur 500+ plateformes mondiales —
             Amazon, Nike, Udemy, Booking et bien plus.
@@ -400,7 +405,7 @@
         </div>
 
         <div class="fcol">
-          <h4>Plateformes</h4>
+          <h4 data-i18n="footer.platforms">Plateformes</h4>
           <ul>
             <li><a href="#codes" onclick="filterPlatform('amazon')">Amazon</a></li>
             <li><a href="#codes" onclick="filterPlatform('aliexpress')">AliExpress</a></li>
@@ -412,39 +417,39 @@
         </div>
 
         <div class="fcol">
-          <h4>Catégories</h4>
+          <h4 data-i18n="footer.categories">Catégories</h4>
           <ul>
-            <li><a href="#codes" onclick="filterCategory('mode')">Mode & Beauté</a></li>
-            <li><a href="#codes" onclick="filterCategory('tech')">Tech & High-Tech</a></li>
-            <li><a href="#codes" onclick="filterCategory('formations')">Formations en ligne</a></li>
-            <li><a href="#codes" onclick="filterCategory('voyage')">Voyage & Hôtels</a></li>
-            <li><a href="#codes" onclick="filterCategory('food')">Food & Livraison</a></li>
-            <li><a href="#codes" onclick="filterCategory('gaming')">Gaming</a></li>
+            <li><a href="#codes" onclick="filterCategory('mode')" data-i18n="footer.cat.mode">Mode & Beauté</a></li>
+            <li><a href="#codes" onclick="filterCategory('tech')" data-i18n="footer.cat.tech">Tech & High-Tech</a></li>
+            <li><a href="#codes" onclick="filterCategory('formations')" data-i18n="footer.cat.formations">Formations en ligne</a></li>
+            <li><a href="#codes" onclick="filterCategory('voyage')" data-i18n="footer.cat.voyage">Voyage & Hôtels</a></li>
+            <li><a href="#codes" onclick="filterCategory('food')" data-i18n="footer.cat.food">Food & Livraison</a></li>
+            <li><a href="#codes" onclick="filterCategory('gaming')" data-i18n="footer.cat.gaming">Gaming</a></li>
           </ul>
         </div>
 
         <div class="fcol">
-          <h4>Informations</h4>
+          <h4 data-i18n="footer.info">Informations</h4>
           <ul>
-            <li><a href="#comment-ca-marche">Comment ça marche</a></li>
-            <li><a href="#soumettre">Soumettre un code</a></li>
-            <li><a href="#" onclick="showPage('cgv');return false">CGV</a></li>
-            <li><a href="#" onclick="showPage('confidentialite');return false">Confidentialité</a></li>
-            <li><a href="#" onclick="showPage('mentions');return false">Mentions légales</a></li>
+            <li><a href="#comment-ca-marche" data-i18n="footer.how">Comment ça marche</a></li>
+            <li><a href="#soumettre" data-i18n="footer.submit">Soumettre un code</a></li>
+            <li><a href="#" onclick="showPage('cgv');return false" data-i18n="footer.cgv">CGV</a></li>
+            <li><a href="#" onclick="showPage('confidentialite');return false" data-i18n="footer.privacy">Confidentialité</a></li>
+            <li><a href="#" onclick="showPage('mentions');return false" data-i18n="footer.legal">Mentions légales</a></li>
           </ul>
         </div>
 
       </div>
 
       <div class="fbot">
-        <div>© 2025 PromoVault — Tous droits réservés. Codes promos vérifiés automatiquement par IA.</div>
+        <div data-i18n="footer.copyright">© 2025 PromoVault — Tous droits réservés. Codes promos vérifiés automatiquement par IA.</div>
         <div class="fbot-r">
           <span style="display:flex;align-items:center;gap:6px">
             <div class="dot"></div>
-            Agent IA actif
+            <span data-i18n="footer.agent">Agent IA actif</span>
           </span>
-          <a href="#" onclick="showPage('confidentialite');return false">Confidentialité</a>
-          <a href="#" onclick="showPage('mentions');return false">Mentions légales</a>
+          <a href="#" onclick="showPage('confidentialite');return false" data-i18n="footer.privacy">Confidentialité</a>
+          <a href="#" onclick="showPage('mentions');return false" data-i18n="footer.legal">Mentions légales</a>
         </div>
       </div>
     </div>
