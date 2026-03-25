@@ -1873,3 +1873,9 @@ footer::before {
     font-size: 3rem;
   }
 }
+
+a, button, input, select, textarea,
+.ccard, .plat-pill, .cat, .fbtn, .cbtn,
+.nav-btn, .mclose, .theme-toggle, [onclick] {
+  cursor: none !important;
+}
