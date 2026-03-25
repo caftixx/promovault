@@ -121,21 +121,21 @@ initTheme();
         'nav.how': 'Comment ça marche',
         'nav.live': 'IA active',
         'nav.submit': 'Soumettre un code',
-        'nav.alert': "🔔 M'alerter",
+        'nav.alert': "M'alerter",
 
-        'drawer.codes': '🏷️ Codes promos',
-        'drawer.platforms': '🛒 Plateformes',
-        'drawer.categories': '📂 Catégories',
-        'drawer.how': '❓ Comment ça marche',
-        'drawer.submit': '➕ Soumettre un code',
-        'drawer.alert': "🔔 M'alerter",
-        'drawer.lang': '🇬🇧 Switch to English',
+        'drawer.codes': 'Codes promos',
+        'drawer.platforms': 'Plateformes',
+        'drawer.categories': 'Catégories',
+        'drawer.how': 'Comment ça marche',
+        'drawer.submit': 'Soumettre un code',
+        'drawer.alert': "M'alerter",
+        'drawer.lang': 'Switch to English',
 
         'hero.h1a': 'Les meilleurs codes promos,',
         'hero.h1b': 'vérifiés toutes les 6h',
         'hero.sub': "PromoVault scrute automatiquement des centaines de plateformes mondiales pour vous trouver les meilleures réductions du moment. Fini les codes expirés.",
-        'hero.btn1': '🎯 Voir les codes du jour',
-        'hero.btn2': '❓ Comment ça marche',
+        'hero.btn1': 'Voir les codes du jour',
+        'hero.btn2': 'Comment ça marche',
 
         'stat.codes': 'Codes actifs',
         'stat.platforms': 'Plateformes',
@@ -157,13 +157,13 @@ initTheme();
         'platform.codes': 'codes',
 
         'cats.title': 'Par <em>catégorie</em>',
-        'cats.all': '🌐 Toutes',
+        'cats.all': 'Toutes',
 
         'filter.search': 'Rechercher un code, une marque...',
         'filter.all': 'Tous',
-        'filter.hot': '🔥 Tendances',
-        'filter.expiring': '⏰ Expire bientôt',
-        'filter.free': '🚚 Livraison offerte',
+        'filter.hot': 'Tendances',
+        'filter.expiring': 'Expire bientôt',
+        'filter.free': 'Livraison offerte',
 
         'codes.title': 'Codes promos <em>du jour</em>',
         'codes.loading': 'Chargement...',
@@ -173,15 +173,15 @@ initTheme();
         'codes.loadmore': 'Charger plus de codes ↓',
         'codes.none': 'Aucun code trouvé pour ces critères.',
         'codes.reset': 'Réinitialiser les filtres',
-        'codes.copy': '📋 Copier',
-        'codes.copied': '✅ Copié !',
-        'codes.active': '✅ Code actif',
+        'codes.copy': 'Copier',
+        'codes.copied': 'Copié !',
+        'codes.active': 'Code actif',
         'codes.expires': 'Expire le',
         'codes.locale': 'fr-FR',
 
         'submit.title': 'Vous avez un code promo ?',
         'submit.desc': "Partagez-le avec la communauté. Notre agent IA le vérifiera et le publiera automatiquement s'il est valide.",
-        'submit.btn': '➕ Soumettre un code gratuit',
+        'submit.btn': 'Soumettre un code gratuit',
         'submit.soon': 'Fonctionnalité disponible prochainement !',
 
         'about.title': 'À propos de PromoVault : Votre chasseur de codes promos',
@@ -206,25 +206,25 @@ initTheme();
         'footer.copyright': '© 2025 PromoVault — Tous droits réservés. Codes promos vérifiés automatiquement par IA.',
         'footer.agent': 'Agent IA actif',
 
-        'modal.copy': '📋 Copier & aller sur le site',
+        'modal.copy': 'Copier & aller sur le site',
         'modal.desc_label': 'Description :',
         'modal.conditions_label': 'Conditions :',
         'modal.expires_label': 'Expire le :',
         'modal.status_label': 'Statut :',
-        'modal.status_val': '✅ Code actif',
+        'modal.status_val': 'Code actif',
         'modal.details_default': 'Consultez le site marchand pour les conditions complètes.',
 
-        'alert.title': '🔔 Recevoir les alertes',
+        'alert.title': 'Recevoir les alertes',
         'alert.desc': "Recevez un email dès que de nouveaux codes promos sont ajoutés sur PromoVault. Aucun spam — uniquement les nouvelles offres.",
         'alert.placeholder': 'votre@email.com',
-        'alert.btn': "✅ Je veux être alerté(e)",
+        'alert.btn': "Je veux être alerté(e)",
         'alert.success_title': 'Inscription confirmée !',
         'alert.success_sub': "Vous serez alerté(e) dès qu'un nouveau code promo arrive.",
         'alert.unsub': 'Désinscription possible à tout moment. Aucune donnée partagée.',
         'alert.invalid_email': 'Email invalide !',
 
         'toast.copied_suffix': 'copié !',
-        'toast.sub': 'Collez-le à la caisse pour économiser 🛒',
+        'toast.sub': 'Collez-le à la caisse pour économiser',
 
         'legal.privacy_title': 'Politique de confidentialité',
         'legal.privacy_text': "PromoVault collecte uniquement les données nécessaires au bon fonctionnement du service (données de navigation anonymisées). Aucune donnée personnelle n'est vendue à des tiers. Les codes promos sont collectés depuis des sources publiques et des partenaires affiliés. Conformément au RGPD, vous pouvez exercer vos droits en nous contactant.",
@@ -246,21 +246,21 @@ initTheme();
         'nav.how': 'How it works',
         'nav.live': 'AI active',
         'nav.submit': 'Submit a code',
-        'nav.alert': '🔔 Alert me',
+        'nav.alert': 'Alert me',
 
-        'drawer.codes': '🏷️ Promo codes',
-        'drawer.platforms': '🛒 Platforms',
-        'drawer.categories': '📂 Categories',
-        'drawer.how': '❓ How it works',
-        'drawer.submit': '➕ Submit a code',
-        'drawer.alert': '🔔 Alert me',
-        'drawer.lang': '🇫🇷 Passer en français',
+        'drawer.codes': 'Promo codes',
+        'drawer.platforms': 'Platforms',
+        'drawer.categories': 'Categories',
+        'drawer.how': 'How it works',
+        'drawer.submit': 'Submit a code',
+        'drawer.alert': 'Alert me',
+        'drawer.lang': 'Passer en français',
 
         'hero.h1a': 'The best promo codes,',
         'hero.h1b': 'verified every 6 hours',
         'hero.sub': 'PromoVault automatically scans hundreds of global platforms to find you the best deals of the moment. No more expired codes.',
-        'hero.btn1': "🎯 See today's codes",
-        'hero.btn2': '❓ How it works',
+        'hero.btn1': "See today's codes",
+        'hero.btn2': 'How it works',
 
         'stat.codes': 'Active codes',
         'stat.platforms': 'Platforms',
@@ -282,13 +282,13 @@ initTheme();
         'platform.codes': 'codes',
 
         'cats.title': 'By <em>category</em>',
-        'cats.all': '🌐 All',
+        'cats.all': 'All',
 
         'filter.search': 'Search for a code, brand...',
         'filter.all': 'All',
-        'filter.hot': '🔥 Trending',
-        'filter.expiring': '⏰ Expiring soon',
-        'filter.free': '🚚 Free shipping',
+        'filter.hot': 'Trending',
+        'filter.expiring': 'Expiring soon',
+        'filter.free': 'Free shipping',
 
         'codes.title': "Today's <em>promo codes</em>",
         'codes.loading': 'Loading...',
@@ -298,15 +298,15 @@ initTheme();
         'codes.loadmore': 'Load more codes ↓',
         'codes.none': 'No codes found for these criteria.',
         'codes.reset': 'Reset filters',
-        'codes.copy': '📋 Copy',
-        'codes.copied': '✅ Copied!',
-        'codes.active': '✅ Active code',
+        'codes.copy': 'Copy',
+        'codes.copied': 'Copied!',
+        'codes.active': 'Active code',
         'codes.expires': 'Expires on',
         'codes.locale': 'en-GB',
 
         'submit.title': 'Have a promo code?',
         'submit.desc': "Share it with the community. Our AI agent will verify it and publish it automatically if it's valid.",
-        'submit.btn': '➕ Submit a free code',
+        'submit.btn': 'Submit a free code',
         'submit.soon': 'Feature coming soon!',
 
         'about.title': 'About PromoVault: Your promo code hunter',
@@ -331,25 +331,25 @@ initTheme();
         'footer.copyright': '© 2025 PromoVault — All rights reserved. Promo codes automatically verified by AI.',
         'footer.agent': 'AI agent active',
 
-        'modal.copy': '📋 Copy & go to site',
+        'modal.copy': 'Copy & go to site',
         'modal.desc_label': 'Description:',
         'modal.conditions_label': 'Conditions:',
         'modal.expires_label': 'Expires on:',
         'modal.status_label': 'Status:',
-        'modal.status_val': '✅ Active code',
+        'modal.status_val': 'Active code',
         'modal.details_default': "Check the merchant's website for full conditions.",
 
-        'alert.title': '🔔 Receive alerts',
+        'alert.title': 'Receive alerts',
         'alert.desc': 'Receive an email as soon as new promo codes are added to PromoVault. No spam — only new deals.',
         'alert.placeholder': 'your@email.com',
-        'alert.btn': '✅ Alert me',
+        'alert.btn': 'Alert me',
         'alert.success_title': 'Subscription confirmed!',
         'alert.success_sub': "You'll be notified as soon as a new promo code arrives.",
         'alert.unsub': 'Unsubscribe at any time. No data shared.',
         'alert.invalid_email': 'Invalid email!',
 
         'toast.copied_suffix': 'copied!',
-        'toast.sub': 'Paste it at checkout to save 🛒',
+        'toast.sub': 'Paste it at checkout to save',
 
         'legal.privacy_title': 'Privacy Policy',
         'legal.privacy_text': 'PromoVault only collects data necessary for the service to function properly (anonymized browsing data). No personal data is sold to third parties. Promo codes are collected from public sources and affiliate partners. In accordance with GDPR, you can exercise your rights by contacting us.',
@@ -395,7 +395,7 @@ initTheme();
       // Update lang buttons
       const isFr = lang === 'fr';
       const langBtn = document.getElementById('lang-btn');
-      if (langBtn) langBtn.textContent = isFr ? '🇬🇧 EN' : '🇫🇷 FR';
+      if (langBtn) langBtn.textContent = isFr ? 'EN' : 'FR';
       const drawerBtn = document.getElementById('drawer-lang-btn');
       if (drawerBtn) drawerBtn.textContent = t('drawer.lang');
       // Re-render dynamic content with new language
@@ -453,7 +453,6 @@ initTheme();
       document.getElementById('plat-grid').innerHTML = PLATFORMS.map(p =>
         `<div class="plat-pill ${activePlatform === p.id ? 'active' : ''} ${p.count === 0 ? 'disabled' : ''}"
           onclick="${p.count > 0 ? `filterPlatform('${p.id}')` : ''}">
-      <div class="pe">${p.emoji}</div>
       <div class="pn">${p.name}</div>
       <div class="pc">${p.count} ${p.count > 1 ? t('platform.codes') : t('platform.code')}</div>
     </div>`
@@ -466,7 +465,7 @@ initTheme();
         `<div class="cat ${!activeCategory ? 'active' : ''}" onclick="filterCategory(null)">${t('cats.all')}</div>` +
         CATEGORIES.map(c => `
       <div class="cat ${activeCategory === c.id ? 'active' : ''}" onclick="filterCategory('${c.id}')">
-        ${c.emoji} ${c.label}
+        ${c.label}
       </div>`
         ).join('');
     }
@@ -502,7 +501,6 @@ initTheme();
       if (!slice.length) {
         grid.innerHTML = `
       <div style="grid-column:1/-1;text-align:center;padding:56px;color:var(--text3)">
-        <div style="font-size:2.4rem;margin-bottom:10px">🔍</div>
         <div>${t('codes.none')}</div>
         <button class="btn-g" onclick="resetFilters()" style="margin-top:16px;display:inline-flex">
           ${t('codes.reset')}
@@ -536,7 +534,7 @@ initTheme();
         <div class="feat" onclick="openModal(${c.id})">
           <div class="feat-disc">${c.discount}</div>
           <div class="feat-info">
-            <div class="feat-brand">${c.emoji} ${c.brand}</div>
+            <div class="feat-brand">${c.brand}</div>
             <div class="feat-desc">${c.desc}</div>
             <div class="cbox" onclick="event.stopPropagation()">
               <div class="ccode">${c.code}</div>
@@ -548,7 +546,7 @@ initTheme();
           card = `
         <div class="ccard ${c.type.includes('hot') ? 'hot' : ''}" onclick="openModal(${c.id})">
           <div class="ctop">
-            <div class="clogo">${c.emoji}</div>
+            <div class="clogo"></div>
             <div class="cinfo">
               <div class="cname">${c.brand}</div>
               <div class="ccat">${c.category.charAt(0).toUpperCase() + c.category.slice(1)}</div>
@@ -563,7 +561,7 @@ initTheme();
           <div class="cfoot">
             <span class="ctag">${t('codes.active')}</span>
             <span class="cexp ${c.expiring ? 'urgent' : ''}">
-              ${c.expiring ? '⏰' : '📅'} ${t('codes.expires')} ${new Date(c.expiry).toLocaleDateString(locale)}
+              ${t('codes.expires')} ${new Date(c.expiry).toLocaleDateString(locale)}
             </span>
           </div>
         </div>`;
@@ -606,7 +604,7 @@ initTheme();
       if (!c) return;
       currentModalCode = c.code;
       currentModalUrl = c.url || platformUrls[c.platform] || '#';
-      document.getElementById('modal-brand').textContent = `${c.emoji} ${c.brand} — ${c.discount}`;
+      document.getElementById('modal-brand').textContent = `${c.brand} — ${c.discount}`;
       document.getElementById('modal-code').textContent = c.code;
       const locale = t('codes.locale');
       document.getElementById('modal-details').innerHTML = `

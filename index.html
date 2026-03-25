@@ -72,7 +72,7 @@
 
   <!-- Toast -->
   <div class="toast" id="toast">
-    <div style="font-size:1.05rem">✅</div>
+    <div style="font-size:1.05rem"></div>
     <div class="ttext">
       <strong id="toast-title">Code copié !</strong>
       <span id="toast-sub">Collez-le à la caisse.</span>
@@ -91,7 +91,7 @@
       </div>
       <div class="mdetails" id="modal-details"></div>
       <button class="btn-p" style="width:100%;justify-content:center" onclick="copyFromModal()" data-i18n="modal.copy">
-        📋 Copier & aller sur le site
+        Copier & aller sur le site
       </button>
     </div>
   </div>
@@ -100,11 +100,11 @@
   <div class="moverlay" id="alert-modal" role="dialog" aria-modal="true">
     <div class="modal">
       <div class="mhead">
-        <div class="mtitle" data-i18n="alert.title">🔔 Recevoir les alertes</div>
+        <div class="mtitle" data-i18n="alert.title">Recevoir les alertes</div>
         <button class="mclose" onclick="closeAlertModal()" aria-label="Fermer">✕</button>
       </div>
       <div style="text-align:center;margin-bottom:24px">
-        <div style="font-size:2.5rem;margin-bottom:12px">📬</div>
+        <div style="font-size:2.5rem;margin-bottom:12px"></div>
         <p style="color:var(--text2);font-size:.92rem;line-height:1.7" data-i18n="alert.desc">
           Recevez un email dès que de nouveaux codes promos sont ajoutés sur PromoVault.
           Aucun spam — uniquement les nouvelles offres.
@@ -116,11 +116,11 @@
           onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'">
         <button class="btn-p" style="width:100%;justify-content:center" onclick="subscribeAlert()"
           data-i18n="alert.btn">
-          ✅ Je veux être alerté(e)
+          Je veux être alerté(e)
         </button>
       </div>
       <div id="alert-success" style="display:none;text-align:center;padding:20px 0">
-        <div style="font-size:2rem;margin-bottom:10px">🎉</div>
+        <div style="font-size:2rem;margin-bottom:10px"></div>
         <p style="color:var(--green);font-weight:500;margin-bottom:6px" data-i18n="alert.success_title">Inscription
           confirmée !</p>
         <p style="color:var(--text2);font-size:.85rem" data-i18n="alert.success_sub">Vous serez alerté(e) dès qu'un
@@ -153,32 +153,32 @@
       <li><a href="#soumettre" class="nav-btn" data-i18n="nav.submit">Soumettre un code</a></li>
       <li>
         <button onclick="openAlertModal()" class="nav-btn" style="background:var(--green)" data-i18n="nav.alert">
-          🔔 M'alerter
+          M'alerter
         </button>
       </li>
       <li>
         <button onclick="toggleLang()" id="lang-btn" class="nav-btn"
-          style="background:var(--bg2);border:1px solid var(--border);color:var(--text);font-size:.82rem;padding:7px 13px">🇬🇧
+          style="background:var(--bg2);border:1px solid var(--border);color:var(--text);font-size:.82rem;padding:7px 13px">
           EN</button>
       </li>
     </ul>
     <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()">☀️ Clair</button>
     <button class="nav-mob" onclick="toggleDrawer()" aria-label="Menu">☰</button>
     <button onclick="openAlertModal()" class="nav-btn nav-alert-mob"
-      style="background:var(--green);display:none;font-size:.78rem;padding:7px 14px">🔔</button>
+      style="background:var(--green);display:none;font-size:.78rem;padding:7px 14px"></button>
   </nav>
 
   <!-- Menu mobile -->
   <div class="drawer" id="drawer">
-    <a href="#codes" onclick="closeDrawer()" data-i18n="drawer.codes">🏷️ Codes promos</a>
-    <a href="#platforms" onclick="closeDrawer()" data-i18n="drawer.platforms">🛒 Plateformes</a>
-    <a href="#categories" onclick="closeDrawer()" data-i18n="drawer.categories">📂 Catégories</a>
-    <a href="#comment-ca-marche" onclick="closeDrawer()" data-i18n="drawer.how">❓ Comment ça marche</a>
-    <a href="#soumettre" onclick="closeDrawer()" style="color:var(--accent)" data-i18n="drawer.submit">➕ Soumettre un
+    <a href="#codes" onclick="closeDrawer()" data-i18n="drawer.codes">Codes promos</a>
+    <a href="#platforms" onclick="closeDrawer()" data-i18n="drawer.platforms">Plateformes</a>
+    <a href="#categories" onclick="closeDrawer()" data-i18n="drawer.categories">Catégories</a>
+    <a href="#comment-ca-marche" onclick="closeDrawer()" data-i18n="drawer.how">Comment ça marche</a>
+    <a href="#soumettre" onclick="closeDrawer()" style="color:var(--accent)" data-i18n="drawer.submit">Soumettre un
       code</a>
-    <a href="#" onclick="closeDrawer();openAlertModal()" style="color:var(--green)" data-i18n="drawer.alert">🔔
+    <a href="#" onclick="closeDrawer();openAlertModal()" style="color:var(--green)" data-i18n="drawer.alert">
       M'alerter</a>
-    <a href="#" onclick="closeDrawer();toggleLang()" id="drawer-lang-btn" style="color:var(--text2)">🇬🇧 Switch to
+    <a href="#" onclick="closeDrawer();toggleLang()" id="drawer-lang-btn" style="color:var(--text2)">Switch to
       English</a>
   </div>
 
@@ -193,8 +193,8 @@
       pour vous trouver les meilleures réductions du moment. Fini les codes expirés.
     </p>
     <div class="hero-btns">
-      <a href="#codes" class="btn-p" data-i18n="hero.btn1">🎯 Voir les codes du jour</a>
-      <a href="#comment-ca-marche" class="btn-g" data-i18n="hero.btn2">❓ Comment ça marche</a>
+      <a href="#codes" class="btn-p" data-i18n="hero.btn1">Voir les codes du jour</a>
+      <a href="#comment-ca-marche" class="btn-g" data-i18n="hero.btn2">Comment ça marche</a>
     </div>
     <div class="stats-row">
       <div class="stat">
@@ -310,9 +310,9 @@
           data-i18n-placeholder="filter.search" autocomplete="off">
       </div>
       <button class="fbtn active" data-filter="all" data-i18n="filter.all">Tous</button>
-      <button class="fbtn" data-filter="hot" data-i18n="filter.hot">🔥 Tendances</button>
-      <button class="fbtn" data-filter="expiring" data-i18n="filter.expiring">⏰ Expire bientôt</button>
-      <button class="fbtn" data-filter="free" data-i18n="filter.free">🚚 Livraison offerte</button>
+      <button class="fbtn" data-filter="hot" data-i18n="filter.hot">Tendances</button>
+      <button class="fbtn" data-filter="expiring" data-i18n="filter.expiring">Expire bientôt</button>
+      <button class="fbtn" data-filter="free" data-i18n="filter.free">Livraison offerte</button>
     </div>
 
     <!-- Codes + Sidebar -->
@@ -371,7 +371,7 @@
           Partagez-le avec la communauté. Notre agent IA le vérifiera et le publiera
           automatiquement s'il est valide.
         </p>
-        <button class="btn-p" onclick="openSubmitModal()" data-i18n="submit.btn">➕ Soumettre un code gratuit</button>
+        <button class="btn-p" onclick="openSubmitModal()" data-i18n="submit.btn">Soumettre un code gratuit</button>
       </div>
     </section>
 
@@ -404,9 +404,8 @@
       <div class="footer-grid">
 
         <div class="fbrand">
-          <a href="/" class="nav-logo" style="font-size:1.2rem">
-            <div class="logo-icon" style="width:30px;height:30px;font-size:.85rem">🏷️</div>
-            <div class="logo-text">Promo<em>Vault</em></div>
+          <a href="/" class="nav-logo">
+            <img src="logo.png" alt="PromoVault" style="height:36px;width:auto;">
           </a>
           <p data-i18n="footer.desc">
             Le premier agrégateur de codes promos vérifiés par intelligence artificielle.
