@@ -54,17 +54,15 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8294263820749243"
     crossorigin="anonymous"></script>
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
-    rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<canvas id="particles-canvas"></canvas>
 
   <!-- Background blobs -->
   <div class="blob b1"></div>
@@ -164,6 +162,7 @@
           EN</button>
       </li>
     </ul>
+    <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()">☀️ Clair</button>
     <button class="nav-mob" onclick="toggleDrawer()" aria-label="Menu">☰</button>
     <button onclick="openAlertModal()" class="nav-btn nav-alert-mob"
       style="background:var(--green);display:none;font-size:.78rem;padding:7px 14px">🔔</button>
