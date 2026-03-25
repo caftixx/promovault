@@ -87,7 +87,7 @@ function toggleTheme() {
 
 function updateThemeBtn(theme) {
   const btn = document.getElementById('theme-toggle');
-  if (btn) btn.innerHTML = theme === 'dark' ? '☀️ Clair' : '🌙 Sombre';
+  if (btn) btn.innerHTML = theme === 'dark' ? 'Mode Clair' : 'Mode Sombre';
 }
 
 initTheme();
