@@ -70,6 +70,69 @@ function animateParticles() {
 }
 animateParticles();
 
+// ── FORMES GÉOMÉTRIQUES FLOTTANTES ──
+function createFloatingShapes() {
+  const hero = document.querySelector('.hero');
+  if (!hero) return;
+
+  const shapes = [
+    { width: 600, height: 140, rotate: 12,  top: '20%', left: '-5%',  delay: 0.3, color: 'rgba(212,175,55,0.08)' },
+    { width: 500, height: 120, rotate: -15, top: '75%', right: '0%',  delay: 0.5, color: 'rgba(212,175,55,0.06)' },
+    { width: 300, height: 80,  rotate: -8,  bottom: '10%', left: '10%', delay: 0.4, color: 'rgba(212,175,55,0.07)' },
+    { width: 200, height: 60,  rotate: 20,  top: '15%', right: '20%', delay: 0.6, color: 'rgba(212,175,55,0.05)' },
+    { width: 150, height: 40,  rotate: -25, top: '10%', left: '25%',  delay: 0.7, color: 'rgba(212,175,55,0.04)' },
+  ];
+
+  shapes.forEach(s => {
+    const el = document.createElement('div');
+    el.style.cssText = `
+      position: absolute;
+      width: ${s.width}px;
+      height: ${s.height}px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(212,175,55,0.15);
+      background: linear-gradient(135deg, ${s.color}, transparent);
+      backdrop-filter: blur(2px);
+      transform: rotate(${s.rotate}deg) translateY(-150px);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 0;
+      ${s.top    ? 'top:'    + s.top    + ';' : ''}
+      ${s.bottom ? 'bottom:' + s.bottom + ';' : ''}
+      ${s.left   ? 'left:'   + s.left   + ';' : ''}
+      ${s.right  ? 'right:'  + s.right  + ';' : ''}
+      transition: opacity 1.2s ease, transform 2.4s cubic-bezier(0.23,0.86,0.39,0.96);
+      transition-delay: ${s.delay}s;
+    `;
+    hero.appendChild(el);
+
+    // Animation entrée
+    setTimeout(() => {
+      el.style.opacity = '1';
+      el.style.transform = `rotate(${s.rotate}deg) translateY(0)`;
+    }, 100);
+
+    // Animation flottante continue
+    let start = null;
+    const amplitude = 15;
+    const duration = 12000;
+    const offset = s.delay * 1000;
+
+    function floatAnim(timestamp) {
+      if (!start) start = timestamp;
+      const elapsed = (timestamp - start + offset) % duration;
+      const progress = elapsed / duration;
+      const y = Math.sin(progress * Math.PI * 2) * amplitude;
+      el.style.transform = `rotate(${s.rotate}deg) translateY(${y}px)`;
+      requestAnimationFrame(floatAnim);
+    }
+
+    setTimeout(() => requestAnimationFrame(floatAnim), (s.delay + 2.4) * 1000);
+  });
+}
+
+createFloatingShapes();
+
 // ── THEME TOGGLE ──
 function initTheme() {
   const saved = localStorage.getItem('theme') || 'dark';
