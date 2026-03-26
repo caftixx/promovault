@@ -1,4 +1,3 @@
-
 // ── CURSEUR CUSTOM ──
 const cursor = document.getElementById('cursor');
 const ring = document.getElementById('cursor-ring');
@@ -106,13 +105,11 @@ function createFloatingShapes() {
     `;
     hero.appendChild(el);
 
-    // Animation entrée
     setTimeout(() => {
       el.style.opacity = '1';
       el.style.transform = `rotate(${s.rotate}deg) translateY(0)`;
     }, 100);
 
-    // Animation flottante continue
     let start = null;
     const amplitude = 15;
     const duration = 12000;
@@ -177,7 +174,6 @@ const TRANSLATIONS = {
   fr: {
     'meta.title': 'PromoVault — Codes Promos Vérifiés par IA',
     'meta.desc': "Codes promos vérifiés par IA toutes les 6h. Amazon, Nike, Udemy, Booking et plus. Économisez jusqu'à 90% sur vos achats.",
-
     'nav.codes': 'Codes promos',
     'nav.platforms': 'Plateformes',
     'nav.categories': 'Catégories',
@@ -185,7 +181,6 @@ const TRANSLATIONS = {
     'nav.live': 'IA active',
     'nav.submit': 'Soumettre un code',
     'nav.alert': "M'alerter",
-
     'drawer.codes': 'Codes promos',
     'drawer.platforms': 'Plateformes',
     'drawer.categories': 'Catégories',
@@ -193,18 +188,15 @@ const TRANSLATIONS = {
     'drawer.submit': 'Soumettre un code',
     'drawer.alert': "M'alerter",
     'drawer.lang': 'Switch to English',
-
     'hero.h1a': 'Les meilleurs codes promos,',
     'hero.h1b': 'vérifiés toutes les 6h',
     'hero.sub': "PromoVault scrute automatiquement des centaines de plateformes mondiales pour vous trouver les meilleures réductions du moment. Fini les codes expirés.",
     'hero.btn1': 'Voir les codes du jour',
     'hero.btn2': 'Comment ça marche',
-
     'stat.codes': 'Codes actifs',
     'stat.platforms': 'Plateformes',
     'stat.rate': 'Taux de validité',
     'stat.cycle': 'Cycle de mise à jour',
-
     'ai.title': 'Statut en temps réel',
     'ai.cycle': 'Cycle automatique toutes les 6 heures',
     'ai.lbl1': 'Codes actifs en base',
@@ -213,21 +205,17 @@ const TRANSLATIONS = {
     'ai.sub2': 'Codes publiés automatiquement',
     'ai.lbl3': 'Prochain cycle dans',
     'ai.sub3': 'GitHub Actions toutes les 6h',
-
     'platforms.title': 'Plateformes <em>populaires</em>',
     'platforms.meta': 'Cliquez pour filtrer les codes',
     'platform.code': 'code',
     'platform.codes': 'codes',
-
     'cats.title': 'Par <em>catégorie</em>',
     'cats.all': 'Toutes',
-
     'filter.search': 'Rechercher un code, une marque...',
     'filter.all': 'Tous',
     'filter.hot': 'Tendances',
     'filter.expiring': 'Expire bientôt',
     'filter.free': 'Livraison offerte',
-
     'codes.title': 'Codes promos <em>du jour</em>',
     'codes.loading': 'Chargement...',
     'codes.connecting': 'Connexion en cours...',
@@ -241,16 +229,13 @@ const TRANSLATIONS = {
     'codes.active': 'Code actif',
     'codes.expires': 'Expire le',
     'codes.locale': 'fr-FR',
-
     'submit.title': 'Vous avez un code promo ?',
     'submit.desc': "Partagez-le avec la communauté. Notre agent IA le vérifiera et le publiera automatiquement s'il est valide.",
     'submit.btn': 'Soumettre un code gratuit',
     'submit.soon': 'Fonctionnalité disponible prochainement !',
-
     'about.title': 'À propos de PromoVault : Votre chasseur de codes promos',
     'about.p1': "Bienvenue sur PromoVault, votre plateforme ultime pour trouver les meilleurs <strong>codes promos vérifiés</strong> et réductions exclusives. Notre intelligence artificielle scanne en permanence le web pour vous offrir des bons de réduction testés sur des plateformes incontournables telles qu'<strong>Amazon, Nike, Udemy, Booking.com</strong> et de nombreuses boutiques en ligne.",
     'about.p2': "Économisez un maximum sur vos achats en ligne grâce à notre base de données mise à jour toutes les 6 heures, vous assurant de ne rater aucune offre tendance ou livraison offerte. Parcourez nos nombreuses offres par catégories (Tech, Mode, Voyage, etc.) pour réaliser des économies au quotidien.",
-
     'footer.desc': "Le premier agrégateur de codes promos vérifiés par intelligence artificielle. Mise à jour automatique toutes les 6h sur 500+ plateformes mondiales — Amazon, Nike, Udemy, Booking et bien plus.",
     'footer.platforms': 'Plateformes',
     'footer.categories': 'Catégories',
@@ -268,7 +253,6 @@ const TRANSLATIONS = {
     'footer.legal': 'Mentions légales',
     'footer.copyright': '© 2025 PromoVault — Tous droits réservés. Codes promos vérifiés automatiquement par IA.',
     'footer.agent': 'Agent IA actif',
-
     'modal.copy': 'Copier & aller sur le site',
     'modal.desc_label': 'Description :',
     'modal.conditions_label': 'Conditions :',
@@ -276,7 +260,6 @@ const TRANSLATIONS = {
     'modal.status_label': 'Statut :',
     'modal.status_val': 'Code actif',
     'modal.details_default': 'Consultez le site marchand pour les conditions complètes.',
-
     'alert.title': 'Recevoir les alertes',
     'alert.desc': "Recevez un email dès que de nouveaux codes promos sont ajoutés sur PromoVault. Aucun spam — uniquement les nouvelles offres.",
     'alert.placeholder': 'votre@email.com',
@@ -285,10 +268,8 @@ const TRANSLATIONS = {
     'alert.success_sub': "Vous serez alerté(e) dès qu'un nouveau code promo arrive.",
     'alert.unsub': 'Désinscription possible à tout moment. Aucune donnée partagée.',
     'alert.invalid_email': 'Email invalide !',
-
     'toast.copied_suffix': 'copié !',
     'toast.sub': 'Collez-le à la caisse pour économiser',
-
     'legal.privacy_title': 'Politique de confidentialité',
     'legal.privacy_text': "PromoVault collecte uniquement les données nécessaires au bon fonctionnement du service (données de navigation anonymisées). Aucune donnée personnelle n'est vendue à des tiers. Les codes promos sont collectés depuis des sources publiques et des partenaires affiliés. Conformément au RGPD, vous pouvez exercer vos droits en nous contactant.",
     'legal.mentions_title': 'Mentions légales',
@@ -296,13 +277,11 @@ const TRANSLATIONS = {
     'legal.cgv_title': 'Conditions générales',
     'legal.cgv_text': "L'utilisation de PromoVault est entièrement gratuite. Les codes promos sont vérifiés automatiquement toutes les 6 heures par notre agent IA. PromoVault peut percevoir des commissions d'affiliation sur les achats effectués via les liens du site, sans coût supplémentaire pour l'utilisateur.",
     'legal.close': 'Fermer',
-
     'page.ad': 'Publicité',
   },
   en: {
     'meta.title': 'PromoVault — AI-Verified Promo Codes',
     'meta.desc': 'AI-verified promo codes updated every 6h. Amazon, Nike, Udemy, Booking and more. Save up to 90% on your purchases.',
-
     'nav.codes': 'Promo codes',
     'nav.platforms': 'Platforms',
     'nav.categories': 'Categories',
@@ -310,7 +289,6 @@ const TRANSLATIONS = {
     'nav.live': 'AI active',
     'nav.submit': 'Submit a code',
     'nav.alert': 'Alert me',
-
     'drawer.codes': 'Promo codes',
     'drawer.platforms': 'Platforms',
     'drawer.categories': 'Categories',
@@ -318,18 +296,15 @@ const TRANSLATIONS = {
     'drawer.submit': 'Submit a code',
     'drawer.alert': 'Alert me',
     'drawer.lang': 'Passer en français',
-
     'hero.h1a': 'The best promo codes,',
     'hero.h1b': 'verified every 6 hours',
     'hero.sub': 'PromoVault automatically scans hundreds of global platforms to find you the best deals of the moment. No more expired codes.',
     'hero.btn1': "See today's codes",
     'hero.btn2': 'How it works',
-
     'stat.codes': 'Active codes',
     'stat.platforms': 'Platforms',
     'stat.rate': 'Validity rate',
     'stat.cycle': 'Update cycle',
-
     'ai.title': 'Real-time status',
     'ai.cycle': 'Automatic cycle every 6 hours',
     'ai.lbl1': 'Active codes in database',
@@ -338,21 +313,17 @@ const TRANSLATIONS = {
     'ai.sub2': 'Codes published automatically',
     'ai.lbl3': 'Next cycle in',
     'ai.sub3': 'GitHub Actions every 6h',
-
     'platforms.title': 'Popular <em>platforms</em>',
     'platforms.meta': 'Click to filter codes',
     'platform.code': 'code',
     'platform.codes': 'codes',
-
     'cats.title': 'By <em>category</em>',
     'cats.all': 'All',
-
     'filter.search': 'Search for a code, brand...',
     'filter.all': 'All',
     'filter.hot': 'Trending',
     'filter.expiring': 'Expiring soon',
     'filter.free': 'Free shipping',
-
     'codes.title': "Today's <em>promo codes</em>",
     'codes.loading': 'Loading...',
     'codes.connecting': 'Connecting...',
@@ -366,16 +337,13 @@ const TRANSLATIONS = {
     'codes.active': 'Active code',
     'codes.expires': 'Expires on',
     'codes.locale': 'en-GB',
-
     'submit.title': 'Have a promo code?',
     'submit.desc': "Share it with the community. Our AI agent will verify it and publish it automatically if it's valid.",
     'submit.btn': 'Submit a free code',
     'submit.soon': 'Feature coming soon!',
-
     'about.title': 'About PromoVault: Your promo code hunter',
     'about.p1': 'Welcome to PromoVault, your ultimate platform for finding the best <strong>verified promo codes</strong> and exclusive discounts. Our artificial intelligence continuously scans the web to offer you tested discount codes on major platforms such as <strong>Amazon, Nike, Udemy, Booking.com</strong> and many online stores.',
     'about.p2': 'Maximize your savings on online purchases with our database updated every 6 hours, ensuring you never miss a trending deal or free shipping offer. Browse our many offers by category (Tech, Fashion, Travel, etc.) to save money every day.',
-
     'footer.desc': 'The first AI-verified promo code aggregator. Automatic update every 6h on 500+ global platforms — Amazon, Nike, Udemy, Booking and much more.',
     'footer.platforms': 'Platforms',
     'footer.categories': 'Categories',
@@ -393,7 +361,6 @@ const TRANSLATIONS = {
     'footer.legal': 'Legal notice',
     'footer.copyright': '© 2025 PromoVault — All rights reserved. Promo codes automatically verified by AI.',
     'footer.agent': 'AI agent active',
-
     'modal.copy': 'Copy & go to site',
     'modal.desc_label': 'Description:',
     'modal.conditions_label': 'Conditions:',
@@ -401,7 +368,6 @@ const TRANSLATIONS = {
     'modal.status_label': 'Status:',
     'modal.status_val': 'Active code',
     'modal.details_default': "Check the merchant's website for full conditions.",
-
     'alert.title': 'Receive alerts',
     'alert.desc': 'Receive an email as soon as new promo codes are added to PromoVault. No spam — only new deals.',
     'alert.placeholder': 'your@email.com',
@@ -410,10 +376,8 @@ const TRANSLATIONS = {
     'alert.success_sub': "You'll be notified as soon as a new promo code arrives.",
     'alert.unsub': 'Unsubscribe at any time. No data shared.',
     'alert.invalid_email': 'Invalid email!',
-
     'toast.copied_suffix': 'copied!',
     'toast.sub': 'Paste it at checkout to save',
-
     'legal.privacy_title': 'Privacy Policy',
     'legal.privacy_text': 'PromoVault only collects data necessary for the service to function properly (anonymized browsing data). No personal data is sold to third parties. Promo codes are collected from public sources and affiliate partners. In accordance with GDPR, you can exercise your rights by contacting us.',
     'legal.mentions_title': 'Legal Notice',
@@ -421,13 +385,15 @@ const TRANSLATIONS = {
     'legal.cgv_title': 'Terms of Use',
     'legal.cgv_text': 'Using PromoVault is completely free. Promo codes are automatically verified every 6 hours by our AI agent. PromoVault may receive affiliate commissions on purchases made through site links, at no additional cost to the user.',
     'legal.close': 'Close',
-
     'page.ad': 'Advertisement',
   }
 };
 
 // ─── LANGUE ──────────────────────────────────────
 let currentLang = localStorage.getItem('lang') || 'fr';
+
+// Descriptions originales en FR (sauvegardées au chargement)
+let CODES_DESC_FR = {};
 
 function t(key) {
   return (TRANSLATIONS[currentLang] && TRANSLATIONS[currentLang][key]) ||
@@ -447,6 +413,35 @@ function applyTranslations() {
   });
 }
 
+// ── TRADUCTION AUTO AVEC MYMEMORY ──
+const translationCache = {};
+
+async function translateText(text, targetLang) {
+  if (targetLang === 'fr' || !text) return text;
+  if (translationCache[text]) return translationCache[text];
+  try {
+    const resp = await fetch(
+      `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=fr|en`
+    );
+    const data = await resp.json();
+    const translated = data.responseData?.translatedText || text;
+    translationCache[text] = translated;
+    return translated;
+  } catch {
+    return text;
+  }
+}
+
+// Précharger les traductions EN en arrière-plan (sans bloquer l'UI)
+function prefetchTranslations() {
+  if (CODES.length === 0) return;
+  CODES.forEach(c => {
+    if (!translationCache[c.desc] && c.desc) {
+      translateText(c.desc, 'en').catch(() => { });
+    }
+  });
+}
+
 function setLanguage(lang) {
   currentLang = lang;
   localStorage.setItem('lang', lang);
@@ -455,25 +450,28 @@ function setLanguage(lang) {
   const metaDesc = document.querySelector('meta[name="description"]');
   if (metaDesc) metaDesc.content = t('meta.desc');
   applyTranslations();
-  // Update lang buttons
-  const isFr = lang === 'fr';
   const langBtn = document.getElementById('lang-btn');
-  if (langBtn) langBtn.textContent = isFr ? 'EN' : 'FR';
+  if (langBtn) langBtn.textContent = lang === 'fr' ? 'EN' : 'FR';
   const drawerBtn = document.getElementById('drawer-lang-btn');
   if (drawerBtn) drawerBtn.textContent = t('drawer.lang');
-  // Re-render dynamic content with new language
+
   renderPlatforms();
-  // Re-traduire les descriptions si on passe en anglais
-  if (lang === 'en') {
-    Promise.all(CODES.map(async c => {
-      c.desc = await translateText(c.desc, 'en');
-    })).then(() => renderCodes());
+
+  if (lang === 'fr') {
+    // Restaurer les descriptions FR originales
+    CODES.forEach(c => { if (CODES_DESC_FR[c.id]) c.desc = CODES_DESC_FR[c.id]; });
+    renderCodes();
   } else {
-    // Recharger les descriptions originales depuis l'API
-    loadFromAPI().then(() => {
-      renderPlatforms();
-      renderCodes();
+    // Afficher d'abord avec le cache disponible (instantané)
+    CODES.forEach(c => {
+      if (translationCache[c.desc]) c.desc = translationCache[c.desc];
     });
+    renderCodes();
+    // Puis traduire le reste en arrière-plan et re-render
+    Promise.all(CODES.map(async c => {
+      const original = CODES_DESC_FR[c.id] || c.desc;
+      c.desc = await translateText(original, 'en');
+    })).then(() => renderCodes());
   }
 }
 
@@ -563,28 +561,8 @@ function getFiltered() {
   });
 }
 
-// ── TRADUCTION AUTO AVEC MYMEMORY ──
-const translationCache = {};
-
-async function translateText(text, targetLang) {
-  if (targetLang === 'fr' || !text) return text;
-  if (translationCache[text]) return translationCache[text];
-
-  try {
-    const resp = await fetch(
-      `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=fr|en`
-    );
-    const data = await resp.json();
-    const translated = data.responseData?.translatedText || text;
-    translationCache[text] = translated;
-    return translated;
-  } catch {
-    return text;
-  }
-}
-
-// ─── AFFICHAGE DES CODES ─────────────────────────
-async function renderCodes() {
+// ─── AFFICHAGE DES CODES (synchrone — plus de await) ─────────────────────────
+function renderCodes() {
   const grid = document.getElementById('codes-grid');
   const all = getFiltered();
   const slice = all.slice(0, visibleCount);
@@ -607,9 +585,7 @@ async function renderCodes() {
 
   const locale = t('codes.locale');
 
-  const cardsHtml = await Promise.all(slice.map(async (c, i) => {
-
-    // Pub dans la grille aux positions 5 et 11
+  const cardsHtml = slice.map((c, i) => {
     const adSlot = (i === 5 || i === 11) ? `
       <div class="ccard" style="display:flex;align-items:center;justify-content:center;min-height:260px;border-style:dashed">
         <div style="text-align:center">
@@ -622,9 +598,12 @@ async function renderCodes() {
         </div>
       </div>` : '';
 
-    const desc = await translateText(c.desc, currentLang);
-    let card;
+    // Utiliser le cache si disponible, sinon afficher tel quel
+    const desc = (currentLang === 'en' && translationCache[CODES_DESC_FR[c.id] || c.desc])
+      ? translationCache[CODES_DESC_FR[c.id] || c.desc]
+      : c.desc;
 
+    let card;
     if (c.featured) {
       card = `
         <div class="feat" onclick="openModal(${c.id})">
@@ -664,11 +643,9 @@ async function renderCodes() {
     }
 
     return adSlot + card;
-
-  }));
+  });
 
   grid.innerHTML = cardsHtml.join('');
-
   document.getElementById('load-more').style.display =
     all.length > visibleCount ? 'inline-flex' : 'none';
 }
@@ -683,7 +660,6 @@ function copyCode(code, id) {
       setTimeout(() => { btn.textContent = t('codes.copy'); btn.classList.remove('copied'); }, 2000);
     }
     showToast(code);
-    // Tracker l'utilisation
     fetch(`${API}/codes/${id}/use`, { method: 'POST' }).catch(() => { });
   });
 }
@@ -705,7 +681,8 @@ async function openModal(id) {
   document.getElementById('modal-brand').textContent = `${c.brand} — ${c.discount}`;
   document.getElementById('modal-code').textContent = c.code;
   const locale = t('codes.locale');
-  const desc = await translateText(c.desc, currentLang);
+  const originalDesc = CODES_DESC_FR[c.id] || c.desc;
+  const desc = await translateText(originalDesc, currentLang);
   document.getElementById('modal-details').innerHTML = `
     <strong>${t('modal.desc_label')}</strong> ${desc}<br><br>
     <strong>${t('modal.conditions_label')}</strong> ${c.details || t('modal.details_default')}<br><br>
@@ -725,13 +702,10 @@ function copyFromModal() {
   navigator.clipboard.writeText(currentModalCode).then(() => {
     showToast(currentModalCode);
     closeModal();
-    if (currentModalUrl) {
-      window.open(currentModalUrl, '_blank');
-    }
+    if (currentModalUrl) window.open(currentModalUrl, '_blank');
   });
 }
 
-// Fermer modal sur overlay ou Escape
 document.getElementById('modal').addEventListener('click', e => {
   if (e.target === document.getElementById('modal')) closeModal();
 });
@@ -857,7 +831,6 @@ function showPage(type) {
   };
   const keys = map[type];
   if (!keys) return;
-
   const div = document.createElement('div');
   div.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:600;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(8px)';
   div.innerHTML = `
@@ -921,12 +894,8 @@ async function loadFromAPI() {
       };
     });
 
-    // Traduire si langue anglaise
-    if (currentLang === 'en') {
-      for (let c of CODES) {
-        c.desc = await translateText(c.desc, 'en');
-      }
-    }
+    // Sauvegarder les descriptions FR originales
+    CODES.forEach(c => { CODES_DESC_FR[c.id] = c.desc; });
 
     TICKER = CODES.slice(0, 10).map(c => ({
       brand: c.brand,
@@ -944,6 +913,9 @@ async function loadFromAPI() {
     const e2 = document.getElementById('ai-score');
     if (e2) e2.textContent = Math.round(stats.avg_ai_score || 75) + '/100';
 
+    // Précharger les traductions EN en arrière-plan après le chargement
+    setTimeout(prefetchTranslations, 2000);
+
   } catch (err) {
     console.warn('API inaccessible :', err);
     document.getElementById('codes-count').textContent = t('codes.connecting');
@@ -952,7 +924,6 @@ async function loadFromAPI() {
 
 // ─── INITIALISATION ──────────────────────────────
 async function init() {
-  // Appliquer la langue sauvegardée au démarrage
   setLanguage(currentLang);
   document.getElementById('codes-count').textContent = t('codes.loading');
   await loadFromAPI();
@@ -1008,7 +979,7 @@ async function subscribeAlert() {
 
 init();
 
-// ── KEEP ALIVE — empêche Render de dormir ──
+// ── KEEP ALIVE ──
 function keepAlive() {
   fetch(`${API}/stats`).catch(() => { });
 }
