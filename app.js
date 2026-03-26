@@ -463,7 +463,6 @@ function setLanguage(lang) {
   if (drawerBtn) drawerBtn.textContent = t('drawer.lang');
   // Re-render dynamic content with new language
   renderPlatforms();
-  renderCategories();
   // Re-traduire les descriptions si on passe en anglais
   if (lang === 'en') {
     Promise.all(CODES.map(async c => {
@@ -473,7 +472,6 @@ function setLanguage(lang) {
     // Recharger les descriptions originales depuis l'API
     loadFromAPI().then(() => {
       renderPlatforms();
-      renderCategories();
       renderCodes();
     });
   }
@@ -536,7 +534,9 @@ function renderPlatforms() {
 
 // ─── CATÉGORIES ──────────────────────────────────
 function renderCategories() {
-  document.getElementById('cats-row').innerHTML =
+  const el = document.getElementById('cats-row');
+  if (!el) return;
+  el.innerHTML =
     `<div class="cat ${!activeCategory ? 'active' : ''}" onclick="filterCategory(null)">${t('cats.all')}</div>` +
     CATEGORIES.map(c => `
       <div class="cat ${activeCategory === c.id ? 'active' : ''}" onclick="filterCategory('${c.id}')">
@@ -958,7 +958,6 @@ async function init() {
   await loadFromAPI();
   renderTicker();
   renderPlatforms();
-  renderCategories();
   renderCodes();
   animBars();
 }
