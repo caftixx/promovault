@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions legales — PromoVault</title>
+    <meta name="description"
+        content="Mentions legales de PromoVault — informations sur l'editeur et l'hebergeur du site.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://promosvault.com/mentions.html">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --bg: #080808;
+            --bg2: #0e0e0e;
+            --card: #111111;
+            --border: rgba(212, 175, 55, 0.12);
+            --border-b: rgba(212, 175, 55, 0.25);
+            --gold: #D4AF37;
+            --gold-l: #F5E083;
+            --gold-d: #A8892B;
+            --text: #F0EDE4;
+            --text2: #9A9080;
+            --text3: #4A4540;
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--gold), var(--gold-d));
+            border-radius: 2px;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            height: 68px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            background: rgba(8, 8, 8, 0.92);
+            backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0.3;
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            letter-spacing: .05em;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .logo-em {
+            background: linear-gradient(135deg, var(--gold), var(--gold-l));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .back-btn {
+            background: transparent;
+            border: 1px solid var(--border-b);
+            color: var(--text2);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: .82rem;
+            text-decoration: none;
+            transition: all .25s;
+        }
+
+        .back-btn:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .page-hero {
+            padding: 140px 40px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(212, 175, 55, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(212, 175, 55, 0.03) 1px, transparent 1px);
+            background-size: 80px 80px;
+            mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black, transparent);
+            -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black, transparent);
+            pointer-events: none;
+        }
+
+        .page-tag {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            color: var(--gold-l);
+            padding: 5px 16px;
+            border-radius: 50px;
+            font-size: .72rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .page-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 14px;
+        }
+
+        .page-date {
+            font-size: .8rem;
+            color: var(--text3);
+            letter-spacing: .05em;
+        }
+
+        .gold-line {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 20px auto 0;
+        }
+
+        .content {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 60px 40px 100px;
+        }
+
+        .section {
+            margin-bottom: 48px;
+            padding: 32px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+            transition: border-color .3s;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0;
+            transition: opacity .3s;
+        }
+
+        .section:hover {
+            border-color: rgba(212, 175, 55, 0.2);
+        }
+
+        .section:hover::before {
+            opacity: 0.4;
+        }
+
+        .section-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: .75rem;
+            color: var(--gold);
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+
+        .section p {
+            color: var(--text2);
+            font-size: .9rem;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .info-label {
+            font-size: .8rem;
+            color: var(--text3);
+            min-width: 120px;
+            letter-spacing: .03em;
+        }
+
+        .info-value {
+            font-size: .85rem;
+            color: var(--text2);
+        }
+
+        .info-value a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .info-value a:hover {
+            color: var(--gold-l);
+        }
+
+        footer {
+            background: var(--bg2);
+            border-top: 1px solid var(--border);
+            padding: 28px 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0.25;
+        }
+
+        footer p {
+            font-size: .75rem;
+            color: var(--text3);
+        }
+
+        footer a {
+            color: var(--text3);
+            text-decoration: none;
+            margin: 0 12px;
+            transition: color .2s;
+        }
+
+        footer a:hover {
+            color: var(--gold);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 0 16px;
+            }
+
+            .page-hero {
+                padding: 120px 20px 50px;
+            }
+
+            .content {
+                padding: 40px 20px 80px;
+            }
+
+            .section {
+                padding: 24px 20px;
+            }
+
+            .info-row {
+                flex-direction: column;
+                gap: 4px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="/" class="nav-logo">Promo<span class="logo-em">Vault</span></a>
+        <a href="/" class="back-btn">Retour au site</a>
+    </nav>
+
+    <div class="page-hero">
+        <div class="page-tag">Legale</div>
+        <h1 class="page-title">Mentions legales</h1>
+        <p class="page-date">Conformement a la loi n°2004-575 du 21 juin 2004</p>
+        <div class="gold-line"></div>
+    </div>
+
+    <div class="content">
+
+        <div class="section">
+            <div class="section-num">01</div>
+            <h2>Editeur du site</h2>
+            <div class="info-row"><span class="info-label">Site web</span><span class="info-value"><a
+                        href="https://promosvault.com">promosvault.com</a></span></div>
+            <div class="info-row"><span class="info-label">Nom du site</span><span class="info-value">PromoVault</span>
+            </div>
+            <div class="info-row"><span class="info-label">Activite</span><span class="info-value">Agregateur de codes
+                    promos verifie par intelligence artificielle</span></div>
+            <div class="info-row"><span class="info-label">Contact</span><span class="info-value"><a
+                        href="mailto:contact@promosvault.com">contact@promosvault.com</a></span></div>
+        </div>
+
+        <div class="section">
+            <div class="section-num">02</div>
+            <h2>Hebergement</h2>
+            <div class="info-row"><span class="info-label">Frontend</span><span class="info-value">Vercel Inc. — 340
+                    Pine Street, Suite 1501, San Francisco, CA 94104, USA</span></div>
+            <div class="info-row"><span class="info-label">Backend</span><span class="info-value">Render Services Inc. —
+                    San Francisco, CA, USA</span></div>
+            <div class="info-row"><span class="info-label">Base de donnees</span><span class="info-value">Supabase Inc.
+                    — San Francisco, CA, USA</span></div>
+        </div>
+
+        <div class="section">
+            <div class="section-num">03</div>
+            <h2>Propriete intellectuelle</h2>
+            <p>L'ensemble du contenu de ce site (textes, images, logo, codes, structure) est la propriete exclusive de
+                PromoVault, sauf mention contraire.</p>
+            <p>Les codes promos affiches sur le site sont collectes depuis des sources publiques ou fournis par des
+                partenaires affilies. PromoVault ne peut garantir la validite ou l'exactitude de ces codes a tout
+                moment.</p>
+            <p>Toute reproduction, distribution ou utilisation du contenu de ce site sans autorisation ecrite est
+                interdite.</p>
+        </div>
+
+        <div class="section">
+            <div class="section-num">04</div>
+            <h2>Responsabilite</h2>
+            <p>PromoVault s'efforce de maintenir les informations publiees sur ce site aussi precises et a jour que
+                possible. Cependant, nous ne pouvons garantir l'exactitude, l'exhaustivite ou l'actualite des codes
+                promos affiches.</p>
+            <p>Les codes promos sont fournis a titre indicatif. PromoVault ne saurait etre tenu responsable de
+                l'invalidite d'un code promo, du refus d'un marchand d'appliquer une reduction, ou de tout prejudice
+                resultant de l'utilisation du site.</p>
+            <p>PromoVault ne peut etre tenu responsable des dommages directs ou indirects resultant de l'utilisation de
+                ce site ou de l'impossibilite d'y acceder.</p>
+        </div>
+
+        <div class="section">
+            <div class="section-num">05</div>
+            <h2>Liens d'affiliation</h2>
+            <p>Certains liens presentes sur PromoVault sont des liens d'affiliation. En cliquant sur ces liens et en
+                effectuant un achat, PromoVault peut percevoir une commission de la part du marchand concerne, sans
+                aucun cout supplementaire pour vous.</p>
+            <p>Cette remuneration nous permet de maintenir le service gratuit pour tous les utilisateurs. Nous
+                travaillons principalement avec le reseau d'affiliation Awin (Publisher ID : 2813944).</p>
+        </div>
+
+        <div class="section">
+            <div class="section-num">06</div>
+            <h2>Droit applicable</h2>
+            <p>Le present site et ses mentions legales sont soumis au droit francais. En cas de litige, les tribunaux
+                francais seront seuls competents.</p>
+            <p>Pour toute reclamation ou question, contactez-nous a l'adresse : <a href="mailto:contact@promosvault.com"
+                    style="color:var(--gold)">contact@promosvault.com</a></p>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>
+            <a href="/">Accueil</a>
+            <a href="/privacy.html">Confidentialite</a>
+            <a href="/mentions.html">Mentions legales</a>
+            <a href="/contact.html">Contact</a>
+        </p>
+        <p style="margin-top:10px">© 2026 PromoVault — Tous droits reserves</p>
+    </footer>
+
+</body>
+
+</html>
