@@ -547,18 +547,42 @@
     </footer>
 
     <script>
-        function handleSubmit(e) {
+        async function handleSubmit(e) {
             e.preventDefault();
             const form = document.getElementById('contact-form');
             const success = document.getElementById('success-msg');
-            form.style.opacity = '0';
-            form.style.transition = 'opacity .3s';
-            setTimeout(() => {
-                form.style.display = 'none';
-                success.style.display = 'block';
-            }, 300);
-            // Envoyer vers votre email via formspree ou similaire
-            // fetch('https://formspree.io/f/VOTRE_ID', { method: 'POST', body: new FormData(e.target) });
+            const btn = form.querySelector('.submit-btn');
+
+            btn.textContent = 'Envoi en cours...';
+            btn.disabled = true;
+
+            try {
+                const resp = await fetch('https://formspree.io/f/xnjonyba', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        nom: document.getElementById('name').value,
+                        email: document.getElementById('email').value,
+                        sujet: document.getElementById('subject').value,
+                        message: document.getElementById('message').value,
+                    })
+                });
+
+                if (resp.ok) {
+                    form.style.opacity = '0';
+                    form.style.transition = 'opacity .3s';
+                    setTimeout(() => {
+                        form.style.display = 'none';
+                        success.style.display = 'block';
+                    }, 300);
+                } else {
+                    btn.textContent = 'Erreur — réessayez';
+                    btn.disabled = false;
+                }
+            } catch {
+                btn.textContent = 'Erreur — réessayez';
+                btn.disabled = false;
+            }
         }
     </script>
 
