@@ -56,7 +56,12 @@
 
 
   <link rel="icon" type="image/png" href="logo.png">
-  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap"></noscript>
+  <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="style.css"></noscript>
 </head>
 
 <body>
@@ -80,7 +85,7 @@
   </div>
 
   <!-- Modal -->
-  <div class="moverlay" id="modal" role="dialog" aria-modal="true">
+  <div class="moverlay" id="modal" role="dialog" aria-modal="true" aria-label="Détails du code promo">
     <div class="modal">
       <div class="mhead">
         <div class="mtitle" id="modal-brand"></div>
@@ -97,7 +102,7 @@
   </div>
 
   <!-- Modal Alertes Email -->
-  <div class="moverlay" id="alert-modal" role="dialog" aria-modal="true">
+  <div class="moverlay" id="alert-modal" role="dialog" aria-modal="true" aria-label="S'abonner aux alertes">
     <div class="modal">
       <div class="mhead">
         <div class="mtitle" data-i18n="alert.title">Recevoir les alertes</div>
@@ -137,7 +142,7 @@
 ═══════════════════════════════════ -->
   <nav>
     <a href="index.html" class="nav-logo">
-      <img src="logo.png" alt="PromoVault" style="height:36px;width:auto;">
+      <img src="logo.png" alt="PromoVault" width="180" height="36" style="height:36px;width:auto;">
     </a>
     <ul class="nav-menu">
       <li><a href="#codes" data-i18n="nav.codes">Codes promos</a></li>
@@ -243,6 +248,7 @@
      MAIN
 ═══════════════════════════════════ -->
   <main>
+    <h1 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">PromoVault — Codes Promos Vérifiés par IA</h1>
 
     <!-- Plateformes -->
     <section id="platforms" class="reveal">
@@ -365,7 +371,7 @@
 
         <div class="fbrand">
           <a href="index.html" class="nav-logo">
-            <img src="logo.png" alt="PromoVault" style="height:36px;width:auto;">
+            <img src="logo.png" alt="PromoVault" width="180" height="36" style="height:36px;width:auto;">
           </a>
           <p data-i18n="footer.desc">
             Le premier agrégateur de codes promos vérifiés par intelligence artificielle.
