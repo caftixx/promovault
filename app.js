@@ -425,30 +425,11 @@ function applyTranslations() {
 const translationCache = {};
 
 async function translateText(text, targetLang) {
-  if (targetLang === 'fr' || !text) return text;
-  if (translationCache[text]) return translationCache[text];
-  try {
-    const resp = await fetch(
-      `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=fr|en`
-    );
-    const data = await resp.json();
-    const translated = data.responseData?.translatedText || text;
-    translationCache[text] = translated;
-    return translated;
-  } catch {
-    return text;
-  }
+  return text; // Les descriptions courtes sont comprises dans toutes les langues
 }
 
 // Précharger les traductions EN en arrière-plan (sans bloquer l'UI)
-function prefetchTranslations() {
-  if (CODES.length === 0) return;
-  CODES.forEach(c => {
-    if (!translationCache[c.desc] && c.desc) {
-      translateText(c.desc, 'en').catch(() => { });
-    }
-  });
-}
+function prefetchTranslations() {} // Désactivé
 
 function setLanguage(lang) {
   currentLang = lang;
@@ -465,21 +446,10 @@ function setLanguage(lang) {
 
   renderPlatforms();
 
-  if (lang === 'fr') {
-    // Restaurer les descriptions FR originales
-    CODES.forEach(c => { if (CODES_DESC_FR[c.id]) c.desc = CODES_DESC_FR[c.id]; });
+  if (lang === 'en') {
     renderCodes();
   } else {
-    // Afficher d'abord avec le cache disponible (instantané)
-    CODES.forEach(c => {
-      if (translationCache[c.desc]) c.desc = translationCache[c.desc];
-    });
     renderCodes();
-    // Puis traduire le reste en arrière-plan et re-render
-    Promise.all(CODES.map(async c => {
-      const original = CODES_DESC_FR[c.id] || c.desc;
-      c.desc = await translateText(original, 'en');
-    })).then(() => renderCodes());
   }
 }
 
