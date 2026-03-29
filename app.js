@@ -1,3 +1,8 @@
+// Afficher le body seulement quand tout est prêt
+document.addEventListener('DOMContentLoaded', () => {
+  document.body.style.visibility = 'visible';
+});
+
 // ── CURSEUR CUSTOM ──
 const cursor = document.getElementById('cursor');
 const ring = document.getElementById('cursor-ring');
