@@ -1,8 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
   <url>
     <loc>https://promosvault.com/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
   </url>
-
+  <url>
+    <loc>https://promosvault.com/blog/code-promo-amazon.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://promosvault.com/blog/code-promo-nike.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://promosvault.com/blog/economiser-en-ligne.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://promosvault.com/privacy.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://promosvault.com/mentions.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://promosvault.com/contact.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
 </urlset>
+```
+
+**Étape 2 — Soumettre à Google Search Console**
+
+Va sur **search.google.com/search-console** → ajoute ton site `promosvault.com` → puis **Sitemaps → Ajouter un sitemap** → entre `sitemap.xml`.
+
+**Étape 3 — Créer un robots.txt** dans `frontend` :
+```
+User-agent: *
+Allow: /
+Sitemap: https://promosvault.com/sitemap.xml
