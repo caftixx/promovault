@@ -16,6 +16,7 @@ document.addEventListener('mousemove', e => {
 });
 
 document.querySelectorAll('a, button, input, select, textarea, .ccard, .plat-pill, .cat, .fbtn, .cbtn, .nav-btn, .mclose, .theme-toggle, [onclick], label, [role="button"]').forEach(el => {
+  el.style.cursor = 'none';
   el.addEventListener('mouseenter', () => {
     cursor.style.width = '20px';
     cursor.style.height = '20px';
