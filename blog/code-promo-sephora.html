@@ -687,53 +687,7 @@
         style="width:36px;height:36px;border:1.5px solid rgba(212,175,55,0.5);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:width .3s,height .3s;">
     </div>
 
-    <script>
-        const cursor = document.getElementById('cursor');
-        const ring = document.getElementById('cursor-ring');
-
-        document.body.style.cursor = 'none';
-
-        document.addEventListener('mousemove', e => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            setTimeout(() => {
-                ring.style.left = e.clientX + 'px';
-                ring.style.top = e.clientY + 'px';
-            }, 80);
-        });
-
-        document.querySelectorAll('a, button').forEach(el => {
-            el.style.cursor = 'none';
-            el.addEventListener('mouseenter', () => {
-                cursor.style.width = '20px';
-                cursor.style.height = '20px';
-                ring.style.width = '50px';
-                ring.style.height = '50px';
-                ring.style.borderColor = 'rgba(212,175,55,0.8)';
-            });
-            el.addEventListener('mouseleave', () => {
-                cursor.style.width = '12px';
-                cursor.style.height = '12px';
-                ring.style.width = '36px';
-                ring.style.height = '36px';
-                ring.style.borderColor = 'rgba(212,175,55,0.5)';
-            });
-        });
-
-        function toggleLang() {
-            const current = localStorage.getItem('lang') || 'fr';
-            const next = current === 'fr' ? 'en' : 'fr';
-            localStorage.setItem('lang', next);
-            const btn = document.getElementById('lang-btn');
-            if (btn) btn.textContent = next === 'fr' ? 'EN' : 'FR';
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const lang = localStorage.getItem('lang') || 'fr';
-            const btn = document.getElementById('lang-btn');
-            if (btn) btn.textContent = lang === 'fr' ? 'EN' : 'FR';
-        });
-    </script>
+    <script src="blog.js"></script>
 
 
 
