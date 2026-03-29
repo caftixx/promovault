@@ -99,7 +99,7 @@
         <a href="../index.html" class="nav-logo">Promos<span class="logo-em">Vault</span></a>
         <div style="display:flex;gap:10px;align-items:center;">
             <a href="../index.html" class="back-btn">Voir tous les codes</a>
-            <button onclick="toggleLang()" id="lang-btn" style="background:transparent;border:1px solid rgba(212,175,55,0.25);color:var(--text2);padding:7px 13px;border-radius:50px;font-size:.82rem;cursor:none;transition:all .3s;">FR</button>
+            <button id="lang-btn" onclick="toggleLang()" style="background:transparent;border:1px solid rgba(212,175,55,0.25);color:#9A9080;padding:7px 13px;border-radius:50px;font-size:.82rem;cursor:pointer !important;transition:all .3s;pointer-events:all !important;">FR</button>
         </div>
     </nav>
     <div class="hero">
@@ -323,15 +323,15 @@ let currentLang = localStorage.getItem('lang') || 'fr';
 function toggleLang() {
   currentLang = currentLang === 'fr' ? 'en' : 'fr';
   localStorage.setItem('lang', currentLang);
-  document.getElementById('lang-btn').textContent = currentLang === 'fr' ? 'EN' : 'FR';
-  // Rediriger vers la version principale du site avec la langue
   window.location.href = '/?lang=' + currentLang;
 }
 
-// Afficher la langue actuelle au chargement
 document.addEventListener('DOMContentLoaded', () => {
   const btn = document.getElementById('lang-btn');
-  if (btn) btn.textContent = currentLang === 'fr' ? 'EN' : 'FR';
+  if (btn) {
+    btn.textContent = currentLang === 'fr' ? 'EN' : 'FR';
+    btn.style.cursor = 'pointer';
+  }
 });
 </script>
 
