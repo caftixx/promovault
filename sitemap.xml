@@ -36,14 +36,3 @@
     <priority>0.3</priority>
   </url>
 </urlset>
-```
-
-**Étape 2 — Soumettre à Google Search Console**
-
-Va sur **search.google.com/search-console** → ajoute ton site `promosvault.com` → puis **Sitemaps → Ajouter un sitemap** → entre `sitemap.xml`.
-
-**Étape 3 — Créer un robots.txt** dans `frontend` :
-```
-User-agent: *
-Allow: /
-Sitemap: https://promosvault.com/sitemap.xml
