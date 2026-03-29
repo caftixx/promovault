@@ -59,7 +59,12 @@
   box-sizing: border-box;
 }
 
-*, *::selection, input, textarea, select, [contenteditable] {
+*,
+*::selection,
+input,
+textarea,
+select,
+[contenteditable] {
   cursor: none !important;
 }
 
@@ -1718,7 +1723,8 @@ footer::before {
     margin-right: 12px;
   }
 
-  .theme-toggle, #theme-toggle {
+  .theme-toggle,
+  #theme-toggle {
     display: none !important;
   }
 
@@ -1901,8 +1907,20 @@ footer::before {
   }
 }
 
-a, button, input, select, textarea,
-.ccard, .plat-pill, .cat, .fbtn, .cbtn,
-.nav-btn, .mclose, .theme-toggle, [onclick] {
+a,
+button,
+input,
+select,
+textarea,
+.ccard,
+.plat-pill,
+.cat,
+.fbtn,
+.cbtn,
+.nav-btn,
+.mclose,
+.theme-toggle,
+[onclick],
+#lang-btn {
   cursor: none !important;
 }
