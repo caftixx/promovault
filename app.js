@@ -697,9 +697,12 @@ function copyFromModal() {
   });
 }
 
-document.getElementById('modal').addEventListener('click', e => {
-  if (e.target === document.getElementById('modal')) closeModal();
-});
+const modalEl = document.getElementById('modal');
+if (modalEl) {
+  modalEl.addEventListener('click', e => {
+    if (e.target === modalEl) closeModal();
+  });
+}
 
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') { closeModal(); closeAlertModal(); }
