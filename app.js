@@ -34,45 +34,47 @@ document.querySelectorAll('a, button, input, select, textarea, .ccard, .plat-pil
 
 // ── PARTICULES DORÉES ──
 const canvas = document.getElementById('particles-canvas');
-const ctx = canvas.getContext('2d');
-let particles = [];
+if (canvas) {
+  const ctx = canvas.getContext('2d');
+  let particles = [];
 
-function resizeCanvas() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  function createParticle() {
+    return {
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      size: Math.random() * 1.5 + 0.3,
+      speedX: (Math.random() - 0.5) * 0.3,
+      speedY: -Math.random() * 0.4 - 0.1,
+      opacity: Math.random() * 0.6 + 0.1,
+      life: 1,
+    };
+  }
+
+  for (let i = 0; i < 80; i++) particles.push(createParticle());
+
+  function animateParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach((p, i) => {
+      p.x += p.speedX;
+      p.y += p.speedY;
+      p.life -= 0.003;
+      if (p.life <= 0 || p.y < -10) particles[i] = createParticle();
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(212, 175, 55, ${p.opacity * p.life})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(animateParticles);
+  }
+  animateParticles();
 }
-resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
-
-function createParticle() {
-  return {
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    size: Math.random() * 1.5 + 0.3,
-    speedX: (Math.random() - 0.5) * 0.3,
-    speedY: -Math.random() * 0.4 - 0.1,
-    opacity: Math.random() * 0.6 + 0.1,
-    life: 1,
-  };
-}
-
-for (let i = 0; i < 80; i++) particles.push(createParticle());
-
-function animateParticles() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  particles.forEach((p, i) => {
-    p.x += p.speedX;
-    p.y += p.speedY;
-    p.life -= 0.003;
-    if (p.life <= 0 || p.y < -10) particles[i] = createParticle();
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(212, 175, 55, ${p.opacity * p.life})`;
-    ctx.fill();
-  });
-  requestAnimationFrame(animateParticles);
-}
-animateParticles();
 
 // ── FORMES GÉOMÉTRIQUES FLOTTANTES ──
 function createFloatingShapes() {
@@ -450,8 +452,21 @@ function setLanguage(lang) {
   }
 }
 
+// Initialiser le label du bouton au chargement
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('lang-btn');
+  if (btn) btn.textContent = currentLang === 'fr' ? 'EN' : 'FR';
+});
+
 function toggleLang() {
-  setLanguage(currentLang === 'fr' ? 'en' : 'fr');
+  const isBlog = window.location.pathname.includes('/blog/');
+  if (isBlog) {
+    currentLang = currentLang === 'fr' ? 'en' : 'fr';
+    localStorage.setItem('lang', currentLang);
+    window.location.href = '../index.html?lang=' + currentLang;
+  } else {
+    setLanguage(currentLang === 'fr' ? 'en' : 'fr');
+  }
 }
 
 // ─── STATE ───────────────────────────────────────
@@ -496,7 +511,9 @@ function renderTicker() {
 
 // ─── PLATEFORMES ─────────────────────────────────
 function renderPlatforms() {
-  document.getElementById('plat-grid').innerHTML = PLATFORMS.map(p =>
+  const el = document.getElementById('plat-grid');
+  if (!el) return;
+  el.innerHTML = PLATFORMS.map(p =>
     `<div class="plat-pill ${activePlatform === p.id ? 'active' : ''} ${p.count === 0 ? 'disabled' : ''}"
           onclick="${p.count > 0 ? `filterPlatform('${p.id}')` : ''}">
       <div class="pn">${p.name}</div>
@@ -539,12 +556,15 @@ function getFiltered() {
 // ─── AFFICHAGE DES CODES (synchrone — plus de await) ─────────────────────────
 function renderCodes() {
   const grid = document.getElementById('codes-grid');
+  if (!grid) return;
   const all = getFiltered();
   const slice = all.slice(0, visibleCount);
 
   const count = all.length;
-  document.getElementById('codes-count').textContent =
-    `${count} ${count > 1 ? t('codes.count.plural') : t('codes.count.singular')}`;
+  const countEl = document.getElementById('codes-count');
+  if (countEl) {
+    countEl.textContent = `${count} ${count > 1 ? t('codes.count.plural') : t('codes.count.singular')}`;
+  }
 
   if (!slice.length) {
     grid.innerHTML = `

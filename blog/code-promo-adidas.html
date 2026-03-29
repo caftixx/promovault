@@ -309,23 +309,7 @@
     
     <script src="../app.js"></script>
 
-<script>
-let currentLang = localStorage.getItem('lang') || 'fr';
 
-function toggleLang() {
-  currentLang = currentLang === 'fr' ? 'en' : 'fr';
-  localStorage.setItem('lang', currentLang);
-  window.location.href = '/?lang=' + currentLang;
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  const btn = document.getElementById('lang-btn');
-  if (btn) {
-    btn.textContent = currentLang === 'fr' ? 'EN' : 'FR';
-    btn.style.cursor = 'pointer';
-  }
-});
-</script>
 
 </body>
 </html>
