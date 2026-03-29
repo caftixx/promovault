@@ -405,13 +405,13 @@ const TRANSLATIONS = {
 };
 
 // ─── LANGUE ──────────────────────────────────────
-let currentLang = localStorage.getItem('lang') || 'fr';
+let activeLang = localStorage.getItem('lang') || 'fr';
 
 // Descriptions originales en FR (sauvegardées au chargement)
 let CODES_DESC_FR = {};
 
 function t(key) {
-  return (TRANSLATIONS[currentLang] && TRANSLATIONS[currentLang][key]) ||
+  return (TRANSLATIONS[activeLang] && TRANSLATIONS[activeLang][key]) ||
     (TRANSLATIONS['fr'] && TRANSLATIONS['fr'][key]) ||
     key;
 }
@@ -431,7 +431,7 @@ function applyTranslations() {
 
 
 function setLanguage(lang) {
-  currentLang = lang;
+  activeLang = lang;
   localStorage.setItem('lang', lang);
   document.getElementById('html-root').lang = lang;
   document.title = t('meta.title');
@@ -455,17 +455,17 @@ function setLanguage(lang) {
 // Initialiser le label du bouton au chargement
 document.addEventListener('DOMContentLoaded', () => {
   const btn = document.getElementById('lang-btn');
-  if (btn) btn.textContent = currentLang === 'fr' ? 'EN' : 'FR';
+  if (btn) btn.textContent = activeLang === 'fr' ? 'EN' : 'FR';
 });
 
 function toggleLang() {
   const isBlog = window.location.pathname.includes('/blog/');
   if (isBlog) {
-    currentLang = currentLang === 'fr' ? 'en' : 'fr';
-    localStorage.setItem('lang', currentLang);
-    window.location.href = '../index.html?lang=' + currentLang;
+    activeLang = activeLang === 'fr' ? 'en' : 'fr';
+    localStorage.setItem('lang', activeLang);
+    window.location.href = '../index.html?lang=' + activeLang;
   } else {
-    setLanguage(currentLang === 'fr' ? 'en' : 'fr');
+    setLanguage(activeLang === 'fr' ? 'en' : 'fr');
   }
 }
 
@@ -593,7 +593,7 @@ function renderCodes() {
         </div>
       </div>` : '';
 
-    const desc = currentLang === 'en' ? (c.desc_en || c.desc) : c.desc;
+    const desc = activeLang === 'en' ? (c.desc_en || c.desc) : c.desc;
 
     let card;
     if (c.featured) {
@@ -673,7 +673,7 @@ async function openModal(id) {
   document.getElementById('modal-brand').textContent = `${c.brand} — ${c.discount}`;
   document.getElementById('modal-code').textContent = c.code;
   const locale = t('codes.locale');
-  const desc = currentLang === 'en' ? (c.desc_en || c.desc) : c.desc;
+  const desc = activeLang === 'en' ? (c.desc_en || c.desc) : c.desc;
   document.getElementById('modal-details').innerHTML = `
     <strong>${t('modal.desc_label')}</strong> ${desc}<br><br>
     <strong>${t('modal.conditions_label')}</strong> ${c.details || t('modal.details_default')}<br><br>
@@ -914,7 +914,7 @@ async function loadFromAPI() {
 
 // ─── INITIALISATION ──────────────────────────────
 async function init() {
-  setLanguage(currentLang);
+  setLanguage(activeLang);
   document.getElementById('codes-count').textContent = t('codes.loading');
   await loadFromAPI();
   renderTicker();
