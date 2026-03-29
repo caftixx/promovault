@@ -34,26 +34,32 @@ document.querySelectorAll('a, button').forEach(function (el) {
 // ── TRADUCTION ──
 var currentLang = localStorage.getItem('lang') || 'fr';
 var originalTexts = {};
-var isTranslating = false;
+var translationCache = {};
 var idCounter = 0;
+var isTranslating = false;
 
 function saveOriginalTexts() {
-    var elements = document.querySelectorAll('h1, h2, h3, p, li, th, td, .tag, .code-desc, .code-label');
+    var elements = document.querySelectorAll('h1, h2, h3, p, li, .tag, .code-desc, .code-label, .back-btn');
     elements.forEach(function (el) {
         if (!el.dataset.tid) {
             el.dataset.tid = 'tid_' + idCounter++;
-            originalTexts[el.dataset.tid] = el.innerHTML;
+            originalTexts[el.dataset.tid] = el.innerText.trim();
         }
     });
 }
 
-async function translateText(text, targetLang) {
-    if (!text || text.trim().length < 3) return text;
+async function translateOne(text) {
+    if (!text || text.length < 3) return text;
+    if (translationCache[text]) return translationCache[text];
     try {
-        var url = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=fr&tl=' + targetLang + '&dt=t&q=' + encodeURIComponent(text);
-        var resp = await fetch(url);
+        var resp = await fetch('https://api.mymemory.translated.net/get?q=' + encodeURIComponent(text) + '&langpair=fr|en&de=contact@promosvault.com');
         var data = await resp.json();
-        return data[0].map(function (item) { return item[0]; }).join('');
+        if (data.responseStatus === 200) {
+            var translated = data.responseData.translatedText;
+            translationCache[text] = translated;
+            return translated;
+        }
+        return text;
     } catch (e) {
         return text;
     }
@@ -66,26 +72,24 @@ async function translatePage(targetLang) {
     var btn = document.getElementById('lang-btn');
     if (btn) btn.textContent = '...';
 
-    var elements = document.querySelectorAll('h1, h2, h3, p, li, th, td, .tag, .code-desc, .code-label');
+    var elements = document.querySelectorAll('h1, h2, h3, p, li, .tag, .code-desc, .code-label');
 
     if (targetLang === 'fr') {
         elements.forEach(function (el) {
             var original = originalTexts[el.dataset.tid];
-            if (original) el.innerHTML = original;
+            if (original) el.innerText = original;
         });
     } else {
         for (var i = 0; i < elements.length; i++) {
             var el = elements[i];
-            var originalHtml = originalTexts[el.dataset.tid];
-            if (!originalHtml) continue;
-            var temp = document.createElement('div');
-            temp.innerHTML = originalHtml;
-            var text = temp.textContent.trim();
-            if (!text || text.length < 3) continue;
-            var translated = await translateText(text, targetLang);
-            el.innerHTML = originalHtml.replace(temp.textContent, translated);
-            // Petite pause toutes les 10 elements
-            if (i % 10 === 0) await new Promise(function (r) { setTimeout(r, 100); });
+            var original = originalTexts[el.dataset.tid];
+            if (!original) continue;
+            var translated = await translateOne(original);
+            el.innerText = translated;
+            // Pause tous les 5 elements pour eviter le rate limit
+            if (i % 5 === 0 && i > 0) {
+                await new Promise(function (r) { setTimeout(r, 300); });
+            }
         }
     }
 
@@ -94,6 +98,7 @@ async function translatePage(targetLang) {
 }
 
 function toggleLang() {
+    if (isTranslating) return;
     var next = currentLang === 'fr' ? 'en' : 'fr';
     currentLang = next;
     localStorage.setItem('lang', next);
@@ -103,8 +108,12 @@ function toggleLang() {
 document.addEventListener('DOMContentLoaded', function () {
     saveOriginalTexts();
     var btn = document.getElementById('lang-btn');
-    if (btn) btn.textContent = currentLang === 'fr' ? 'EN' : 'FR';
+    if (btn) {
+        btn.textContent = currentLang === 'fr' ? 'EN' : 'FR';
+        btn.style.cursor = 'pointer';
+        btn.onclick = toggleLang;
+    }
     if (currentLang === 'en') {
-        translatePage('en');
+        setTimeout(function () { translatePage('en'); }, 500);
     }
 });
