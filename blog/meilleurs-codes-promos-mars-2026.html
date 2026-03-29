@@ -426,7 +426,8 @@
             validité des codes dits "paliers" (ex: -20€ dès 100€ d'achat), signe que les marchands cherchent à augmenter
             le panier moyen en ce début de saison. Chez PromosVault, notre mission est de transformer ces données brutes
             en économies nettes pour votre portefeuille, en vous garantissant des codes vérifiés toutes les 6 heures
-            pour une sérénité totale lors du paiement.</p>
+            pour une sérénité totale lors du paiement.
+        </p>
 
         <p>Pourquoi ce classement est-il la référence absolue ? Parce qu'il compile les retours en temps réel de
             milliers d'utilisateurs et les tests automatiques de nos bots de vérification. Nous ne nous contentons pas
@@ -662,7 +663,8 @@
             vos repas, vous avez fait le bon choix : celui de l'intelligence financière. Préparez-vous pour avril, car
             nous prédisons des offres encore plus spectaculaires avec l'arrivée des beaux jours. D'ici là, faites bon
             usage de vos derniers codes de mars et n'oubliez pas : si c'est sur le web, il y a un code pour ça sur
-            <strong>PromosVault</strong> !</p>
+            <strong>PromosVault</strong> !
+        </p>
 
         <a href="/" class="cta">Consulter tous les classements sur PromosVault</a>
 
@@ -696,9 +698,11 @@
     </div>
 
     <script>
-        // Curseur custom
         const cursor = document.getElementById('cursor');
         const ring = document.getElementById('cursor-ring');
+
+        document.body.style.cursor = 'none';
+
         document.addEventListener('mousemove', e => {
             cursor.style.left = e.clientX + 'px';
             cursor.style.top = e.clientY + 'px';
@@ -707,11 +711,25 @@
                 ring.style.top = e.clientY + 'px';
             }, 80);
         });
+
         document.querySelectorAll('a, button').forEach(el => {
             el.style.cursor = 'none';
+            el.addEventListener('mouseenter', () => {
+                cursor.style.width = '20px';
+                cursor.style.height = '20px';
+                ring.style.width = '50px';
+                ring.style.height = '50px';
+                ring.style.borderColor = 'rgba(212,175,55,0.8)';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.style.width = '12px';
+                cursor.style.height = '12px';
+                ring.style.width = '36px';
+                ring.style.height = '36px';
+                ring.style.borderColor = 'rgba(212,175,55,0.5)';
+            });
         });
 
-        // Toggle langue
         function toggleLang() {
             const current = localStorage.getItem('lang') || 'fr';
             const next = current === 'fr' ? 'en' : 'fr';

@@ -680,7 +680,8 @@
             <strong>nike.com/fr</strong>
             et à l'application Nike. Les magasins d'usine ont leur propre système de remises, souvent affichées
             directement
-            sur les étiquettes en rayon.</p>
+            sur les étiquettes en rayon.
+        </p>
 
         <h3>5. Quel est le montant du code promos étudiant Nike ?</h3>
         <p>En 2026, le code étudiant est de <strong>10%</strong>. Il est généré via la plateforme UNiDAYS après
@@ -701,7 +702,8 @@
             combinaison gagnante reste l'inscription au programme <strong>Nike Member</strong>, la patience pendant les
             inter-saisons, et bien sûr l'utilisation des codes promos vérifiés de PromosVault comme
             <strong>FIRSTSHOP</strong>
-            ou <strong>BIENVENUE20</strong>. Ne payez plus jamais le prix fort pour vos chaussures de sport.</p>
+            ou <strong>BIENVENUE20</strong>. Ne payez plus jamais le prix fort pour vos chaussures de sport.
+        </p>
 
         <p>Nous mettons à jour ce guide et nos listes de codes en continu pour vous assurer le meilleur pouvoir d'achat.
             N'hésitez pas à explorer nos autres sections comme les <a href="/blog/code-promo-zalando.html">promotions
@@ -743,9 +745,11 @@
         style="width:36px;height:36px;border:1.5px solid rgba(212,175,55,0.5);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:width .3s,height .3s;">
     </div>
     <script>
-        // Curseur custom
         const cursor = document.getElementById('cursor');
         const ring = document.getElementById('cursor-ring');
+
+        document.body.style.cursor = 'none';
+
         document.addEventListener('mousemove', e => {
             cursor.style.left = e.clientX + 'px';
             cursor.style.top = e.clientY + 'px';
@@ -754,11 +758,25 @@
                 ring.style.top = e.clientY + 'px';
             }, 80);
         });
+
         document.querySelectorAll('a, button').forEach(el => {
             el.style.cursor = 'none';
+            el.addEventListener('mouseenter', () => {
+                cursor.style.width = '20px';
+                cursor.style.height = '20px';
+                ring.style.width = '50px';
+                ring.style.height = '50px';
+                ring.style.borderColor = 'rgba(212,175,55,0.8)';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.style.width = '12px';
+                cursor.style.height = '12px';
+                ring.style.width = '36px';
+                ring.style.height = '36px';
+                ring.style.borderColor = 'rgba(212,175,55,0.5)';
+            });
         });
 
-        // Toggle langue
         function toggleLang() {
             const current = localStorage.getItem('lang') || 'fr';
             const next = current === 'fr' ? 'en' : 'fr';
