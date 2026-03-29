@@ -836,6 +836,21 @@
         style="width:36px;height:36px;border:1.5px solid rgba(212,175,55,0.5);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:width .3s,height .3s;">
     </div>
     <script src="../app.js"></script>
+<script>
+function toggleLang() {
+  const current = localStorage.getItem('lang') || 'fr';
+  const next = current === 'fr' ? 'en' : 'fr';
+  localStorage.setItem('lang', next);
+  const btn = document.getElementById('lang-btn');
+  if (btn) btn.textContent = next === 'fr' ? 'EN' : 'FR';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const lang = localStorage.getItem('lang') || 'fr';
+  const btn = document.getElementById('lang-btn');
+  if (btn) btn.textContent = lang === 'fr' ? 'EN' : 'FR';
+});
+</script>
 
 
 
