@@ -17,7 +17,12 @@
       background: #080808 !important; 
       visibility: hidden;
     }
-  </style>
+  
+*, *::selection, input, textarea, select, [contenteditable] {
+  cursor: none !important;
+}
+
+    </style>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- ═══════════════════════════════════════════════
@@ -174,9 +179,7 @@
         </button>
       </li>
       <li>
-        <button onclick="toggleLang()" id="lang-btn" class="nav-btn"
-          style="background:var(--bg2);border:1px solid var(--border);color:var(--text);font-size:.82rem;padding:7px 13px">
-          EN</button>
+        <button id="lang-btn" onclick="toggleLang()" style="background:transparent;border:1px solid rgba(212,175,55,0.25);color:#9A9080;padding:7px 13px;border-radius:50px;font-size:.82rem;cursor:pointer !important;transition:all .3s;pointer-events:all !important;">FR</button>
       </li>
     </ul>
     <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()">Mode Clair</button>

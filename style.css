@@ -59,6 +59,10 @@
   box-sizing: border-box;
 }
 
+*, *::selection, input, textarea, select, [contenteditable] {
+  cursor: none !important;
+}
+
 html {
   scroll-behavior: smooth;
 }
