@@ -421,15 +421,7 @@ function applyTranslations() {
   });
 }
 
-// ── TRADUCTION AUTO AVEC MYMEMORY ──
-const translationCache = {};
 
-async function translateText(text, targetLang) {
-  return text; // Les descriptions courtes sont comprises dans toutes les langues
-}
-
-// Précharger les traductions EN en arrière-plan (sans bloquer l'UI)
-function prefetchTranslations() {} // Désactivé
 
 function setLanguage(lang) {
   currentLang = lang;
@@ -576,10 +568,7 @@ function renderCodes() {
         </div>
       </div>` : '';
 
-    // Utiliser le cache si disponible, sinon afficher tel quel
-    const desc = (currentLang === 'en' && translationCache[CODES_DESC_FR[c.id] || c.desc])
-      ? translationCache[CODES_DESC_FR[c.id] || c.desc]
-      : c.desc;
+    const desc = currentLang === 'en' ? (c.desc_en || c.desc) : c.desc;
 
     let card;
     if (c.featured) {
@@ -659,8 +648,7 @@ async function openModal(id) {
   document.getElementById('modal-brand').textContent = `${c.brand} — ${c.discount}`;
   document.getElementById('modal-code').textContent = c.code;
   const locale = t('codes.locale');
-  const originalDesc = CODES_DESC_FR[c.id] || c.desc;
-  const desc = await translateText(originalDesc, currentLang);
+  const desc = currentLang === 'en' ? (c.desc_en || c.desc) : c.desc;
   document.getElementById('modal-details').innerHTML = `
     <strong>${t('modal.desc_label')}</strong> ${desc}<br><br>
     <strong>${t('modal.conditions_label')}</strong> ${c.details || t('modal.details_default')}<br><br>
@@ -861,6 +849,7 @@ async function loadFromAPI() {
         discount: c.discount_label || 'Offre spéciale',
         code: c.code,
         desc: c.description || '',
+        desc_en: c.description_en || c.description || '',
         details: c.details || '',
         type: [
           c.status === 'active' ? 'verified' : '',
@@ -872,8 +861,7 @@ async function loadFromAPI() {
       };
     });
 
-    // Sauvegarder les descriptions FR originales
-    CODES.forEach(c => { CODES_DESC_FR[c.id] = c.desc; });
+
 
     TICKER = CODES.slice(0, 10).map(c => ({
       brand: c.brand,
@@ -891,8 +879,7 @@ async function loadFromAPI() {
     const e2 = document.getElementById('ai-score');
     if (e2) e2.textContent = Math.round(stats.avg_ai_score || 75) + '/100';
 
-    // Précharger les traductions EN en arrière-plan après le chargement
-    setTimeout(prefetchTranslations, 2000);
+
 
   } catch (err) {
     console.warn('API inaccessible :', err);
